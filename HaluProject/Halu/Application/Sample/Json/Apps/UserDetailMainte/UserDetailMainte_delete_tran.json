@@ -1,0 +1,36 @@
+{
+  "request": {
+    "comment": "単票登録（単一テーブル） 削除処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/UserDetailMainte",
+    "mode": "delete",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "comment": "単票登録（単一テーブル） 削除処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/UserDetailMainte",
+    "mode": "delete",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "削除処理は正常に終了しました。"
+    }
+  }
+}

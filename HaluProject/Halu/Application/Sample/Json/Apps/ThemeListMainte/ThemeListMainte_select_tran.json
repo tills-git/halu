@@ -1,0 +1,52 @@
+{
+  "request": {
+    "comment": "テーマ 照会処理 リクエストデータ",
+    "html": "Sample/Json/Apps/ThemeListMainte",
+    "mode": "select",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        
+      }
+    }]
+  },
+  "response": {
+    "comment": "テーマ 照会処理 レスポンスデータ",
+    "html": "Sample/Json/Apps/ThemeListMainte",
+    "mode": "select",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "照会処理は正常に終了しました。"
+    },
+    "records": [{
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "テーマコード": {
+          "value": [""]
+        },
+        "テーマ名称": {
+          "value": [""]
+        },
+        "使用": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""]
+        }
+      }
+    }]
+  }
+}

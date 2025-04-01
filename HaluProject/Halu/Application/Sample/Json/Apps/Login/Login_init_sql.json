@@ -1,0 +1,42 @@
+{
+  "comment": "ログイン 初期処理",
+  "html": "Sample/Json/Apps/Login",
+  "dbname": "sample",
+  "mode": "init",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "初期処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "テーマ ＣＳＳファイル 照会処理",
+    "id": "header",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "テーマ",
+        "where": "使用中フラグ = 1",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "ＣＳＳファイル名": {
+          "value": [""],
+          "field": "テーマコード"
+        }
+      }
+    }
+  }]
+}

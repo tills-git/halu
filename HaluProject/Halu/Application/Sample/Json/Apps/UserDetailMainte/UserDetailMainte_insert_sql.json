@@ -1,0 +1,225 @@
+{
+  "comment": "単票登録（単一テーブル） 削除処理",
+  "html": "Sample/Json/Apps/UserDetailMainte",
+  "dbname": "sample",
+  "mode": "insert",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "登録処理は正常に終了しました。"
+  },
+  "sqls": [
+    {
+      "comment": "ユーザコード チェック処理",
+      "id": "insert_check",
+      "before": "",
+      "after": "",
+      "sql": {
+        "type": "select",
+        "check": "found error",
+        "errormsg": "ユーザコードは既に登録されています。",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "ユーザ",
+          "where": "ユーザコード = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "ユーザコード": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "ユーザコード",
+            "fieldtype" : "char"
+          }
+        }
+      },
+      "output": {
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          }
+        }
+      }
+    },
+    {
+      "comment": "ユーザマスタ 登録処理",
+      "id": "insert",
+      "before": "",
+      "after":  "",
+      "sql": {
+        "type": "insert",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "ユーザ",
+          "where": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""],
+            "funct": "nextval('ユーザ_ユーザＩＤ_seq')"
+          },
+          "ユーザコード": {
+            "value": [""],
+            "field": "ユーザコード",
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "ユーザコード"
+          },
+          "ユーザ名": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "ユーザ名"
+          },
+          "パスワード": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "パスワード"
+          },
+          "メニュー名": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "メニュー名"
+          },
+          "メールアドレス": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "メールアドレス"
+          },
+          "テーマコード": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "テーマコード"
+          },
+          "備考": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "備考"
+          },
+          "登録日時": {
+            "value": [""],
+            "funct": "CURRENT_TIMESTAMP"
+          },
+          "登録ユーザ": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "login",
+            "fromio": "",
+            "fromname": "ユーザＩＤ"
+          },
+          "更新日時": {
+            "value": [""],
+            "funct": "CURRENT_TIMESTAMP"
+          },
+          "更新ユーザ": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "login",
+            "fromio": "",
+            "fromname": "ユーザＩＤ"
+          }
+        }
+      }
+    },
+    {
+      "comment" : "登録したユーザＩＤを取得する",
+      "id" : "header_key",
+      "before" : "",
+      "after" : "",
+      "sql" : {
+        "type" : "select",
+        "freesql" : "SELECT currval('ユーザ_ユーザＩＤ_seq') AS ユーザＩＤ",
+        "genesql" : ""
+      },
+      "output" : {
+        "multiline" : "no",
+        "record" : {
+          "ユーザＩＤ" : {
+            "value" : [""]
+          }
+        }
+      }
+    },
+    {
+      "comment": "ユーザマスタ 照会処理",
+      "id": "header",
+      "before": "",
+      "after":  "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "ユーザ",
+          "where": "ユーザＩＤ = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""],
+            "field": "ユーザＩＤ",
+            "fromtype": "sql",
+            "fromid": "header_key",
+            "fromio": "output",
+            "fromname": "ユーザＩＤ"
+            }
+        }
+      },
+      "output": {
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          },
+          "ユーザコード": {
+            "value": [""]
+          },
+          "ユーザ名": {
+            "value": [""]
+          },
+          "パスワード": {
+            "value": [""]
+          },
+          "メニュー名": {
+            "value": [""]
+          },
+          "テーマコード": {
+            "value": [""]
+          },
+          "備考": {
+            "value": [""]
+          },
+          "メールアドレス": {
+            "value": [""]
+          }
+        }
+      }
+    }
+  ]
+}

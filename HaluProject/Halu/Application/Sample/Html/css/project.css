@@ -1,0 +1,308 @@
+@charset "UTF-8";
+
+/* CSS Document */
+/*テーマのcssを一部キャンセル
+---------------------------------------------------- */
+.rmenuTable {
+    border: 0px;
+}
+
+/*“アース標準”フォントを指定する
+MSゴシックが無い時のために、標準的な日本語ゴシックもいれておく
+---------------------------------------------------- */
+body {
+    font-family: "ＭＳ ゴシック","hiragino kaku gothic pro", meiryo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11px;
+}
+
+
+/*主だったクラスにフォントサイズを指定する
+「!important」のついているのは本ファイルのCSSの下の行で
+指定されているオーバーライドをキャンセルするため。
+---------------------------------------------------- */
+.form-horizontal {
+    font-size: 11px;
+}
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th {
+    font-size: 11px;
+}
+.btn {
+    font-size: 11px;
+}
+.form-control {
+    font-size: 11px;
+}
+
+.input-group-addon, .btn-sm, .btn-group-sm > .btn {
+    font-size: 11px !important;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th {
+  font-size: 11px !important;
+}
+.input-sm {
+    font-size: 11px !important;
+}
+
+/*--------------------------------------------------
+* .navbar #rmenu-pagefooter のマージン
+---------------------------------------------------- */
+.navbar {
+  margin-bottom: 12px;
+}
+
+#rmenu-pagefooter {
+  margin-top: 12px !important;
+}
+
+/*--------------------------------------------------
+* #mainForm高さを可変に
+---------------------------------------------------- */
+#mainForm {
+/*    height: calc(100vh - 130px);*/
+}
+
+/*container幅を大きく　1170px→1234px+16px(scrollbar分)
+tableの可変幅を解除
+---------------------------------------------------- */
+.container {
+/*    width: 100vw; */
+    width: calc(100vw - 20px);
+}
+
+#mainTable {
+    width: auto;
+}
+
+/*-----------------------------------------------
+ *  DRM 画面用css
+ *----------------------------------------------- */
+.input-sm {
+  height: 25px;
+  padding: 1px 4px;
+  font-size: 14px;
+  line-height: 1.2;
+  border-radius: 4px;
+}
+
+select.input-sm {
+  height: 25px;
+}
+
+.form-control
+,.input-group .form-control {
+  height: 25px;
+  line-height: 1.2;
+  margin: 4px 0;
+  width: 100%;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 1px 4px;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th {
+  font-size: 15px;
+}
+
+.input-group-addon,
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.glyphicon.glyphicon-th {
+  font-size: 12px;
+}
+.nav-stacked > li + li {
+    margin-top: 0px;
+}
+
+.rmenuTable {
+    margin-bottom: 4px;
+}
+
+.panel {
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel-body {
+  padding: 5px;
+}
+.panel-heading {
+  padding: 3px 3px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: 15px;
+}
+.panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+
+
+/*jquery-scrolltable/jquery.tbodyscroll.js 改修までの繋ぎ指定
+tableのheadの高さが正しく指定されてないのを手動補正。
+[.tbodyScroll-head-bg]に指定されている高さと
+tableのthの高さとの差分「6px固定」をmarginで[.tbodyScroll-inner]に指定する
+※jsによって付加されるdivのクラス。thにもどこかのjsによって高さが付加されてる。
+th,tdのpaddingと関係して調整値変わる
+----------------------------------*/
+
+.tbodyScroll-inner{
+    margin: 6px 0px 0px 0px;
+}
+/*----------------------------------*/
+
+
+.rmenuTable .rmenuTableS {
+  background: #7F8EC1;
+}
+
+input[type="checkbox"]
+,input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: auto;
+}
+
+.rmenuTable tr:nth-child(2n+1) {
+  background: #f4ffff !important;
+}
+
+/* ヘッダー部のコントロールボタン群の設定 */
+.header-btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header-btn-block {
+  margin: 3px 20px;
+}
+
+.btn-group > .btn:first-child {
+  margin-top: 3px;
+}
+
+/* ページネーションのコントロールボタン群の設定 */
+.page-btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-btn-block {
+  margin: 0 5px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+
+
+textarea {
+    font-family: "Osaka−等幅",SimHei,"ＭＳ ゴシック",'Courier New', Courier,"monospace";
+    font-size: 12px;
+    line-height: 1.0;
+    -o-tab-size: 2 ;	/* Opera Miniをサポート (Operaは不要) */
+    -moz-tab-size: 2 ;	/* Firefoxをサポート (2016年3月現在も必要) */
+    tab-size: 1 ;
+}
+
+
+/* color ------------------- */
+
+textarea {
+    color:#e6e6e6;
+    background-color:#4d4d4d;
+}
+
+.rmenu-soure-select {
+  height: 24px;
+  color:#e6e6e6;
+  background-color:#4d4d4d;
+}
+
+/* 黒白
+textarea {
+    color:#e6e6e6;
+    background-color:#1a1a1a;
+}
+ */
+
+/* 灰白
+textarea {
+    color:#e6e6e6;
+    background-color:#4d4d4d;
+}
+ */
+
+/* 黒緑
+textarea {
+    color:#00cc00;
+    background-color:#1a1a1a;
+}
+ */
+
+/* 黒橙
+textarea {
+    color:#FF8000;
+    background-color:#1a1a1a;
+}
+ */
+
+/* 黒黄
+textarea {
+    color:#FFFF40;
+    background-color:#1a1a1a;
+}
+ */
+
+/* 白紺
+textarea {
+    color:#000080;
+    background-color:#e6e6e6;
+}
+ */
+
+/* 黒板(深緑緑)
+textarea {
+    color:#00e600;
+    background-color:#003300;
+}
+ */
+
+/* 琥珀(茶黄)
+textarea {
+    color:#BC774E;
+    background-color:#1E0000;
+}
+ */
+
+/* 
+textarea {
+    color: ;
+    background-color: ;
+}
+ */
+

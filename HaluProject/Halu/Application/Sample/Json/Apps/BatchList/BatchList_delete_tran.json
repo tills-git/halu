@@ -1,0 +1,35 @@
+{
+  "request": {
+    "comment": "並列分散処理　一覧表　処理削除のrequestデータ",
+    "html": "Sample/Json/Apps/BatchList",
+    "mode": "delete",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "comment": "バッチ管理テーブル　ＩＤ",
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "バッチ管理削除ＩＤ": {
+          "value": [""]
+        }
+      }
+    }]
+  },
+  "response": {
+    "comment": "バッチ処理　一覧表　処理削除のresponseデータ",
+    "html": "Sample/Json/Apps/BatchList",
+    "mode": "delete",
+    "prog": "yes",
+    "message": {
+      "status": "OK",
+      "msg": "削除処理は正常に終了しました。"
+    }
+  }
+}

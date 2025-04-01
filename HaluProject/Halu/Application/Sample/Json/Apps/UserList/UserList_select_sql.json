@@ -1,0 +1,115 @@
+{
+  "comment": "一覧照会（単一テーブル） 照会処理",
+  "html": "Sample/Json/Apps/UserList",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [
+    
+    {
+      "comment": "トータル件数",
+      "id": "total_count",
+      "before": "setSql_UserList('header', 'total_count', 'genesql')",
+      "after": "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "ユーザ",
+          "where": "削除フラグ = '0' &&",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+        }
+      },
+      "output": {
+        "multiline": "no",
+        "record": {
+          "トータル件数": {
+            "value": [""],
+            "funct": "COUNT(*)"
+          }
+        }
+      }
+    },
+    {
+      "comment": "一覧照会（単一テーブル） 照会処理",
+      "id": "detail",
+      "before": 
+        [
+          "setSql_UserList('header', 'detail', 'genesql')"
+          ,"getOffsetLineOfUserList('header','detail')"
+        ],
+      "after": "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "ユーザ",
+          "where": "削除フラグ = '0' &&",
+          "order": "ユーザＩＤ",
+          "limit": "? OFFSET ?"
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "ページライン数": {
+            "value": [""],
+            "field": "フィールド名",
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "ページライン数"
+          },
+          "オフセットライン数": {
+            "value": [""]
+          }
+        }
+      },
+      "output": {
+        "multiline": "yes",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""],
+            "field": "ユーザＩＤ"
+          },
+          "ユーザコード": {
+            "value": [""],
+            "field": "ユーザコード"
+          },
+          "ユーザ名": {
+            "value": [""],
+            "field": "ユーザ名"
+          },
+          "パスワード": {
+            "value": [""],
+            "field": "パスワード"
+          },
+          "メニュー名": {
+            "value": [""],
+            "field": "メニュー名"
+          },
+          "テーマコード": {
+            "value": [""],
+            "field": "テーマコード"
+          },
+          "備考": {
+            "value": [""],
+            "field": "備考"
+          }
+        }
+      }
+    }
+    ]
+  }
+  

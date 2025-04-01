@@ -1,0 +1,43 @@
+{
+  "request": {
+    "comment": "ログイン 初期処理 リクエストデータ",
+    "html": "Sample/Json/Apps/Login",
+    "mode": "init",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        
+      }
+    }]
+  },
+  "response": {
+    "comment": "ログイン 初期処理 レスポンスデータ",
+    "html": "Sample/Json/Apps/Login",
+    "mode": "init",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "初期処理は正常に終了しました。"
+    },
+    "records": [{
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ＣＳＳファイル名": {
+          "value": [""]
+        }
+      }
+    }]
+  }
+}

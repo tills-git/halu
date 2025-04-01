@@ -1,0 +1,47 @@
+{
+  "comment": "明細一覧登録（子テーブル） validation",
+  "html": "Sample/Json/Apps/OrderDetailListMainte",
+  "records": [
+  {
+    "id": "detail",
+    "multiline": "yes",
+    "record": {
+      "受注数量": {
+        "validation": ["required",
+        "integerP"],
+        "min": "1",
+        "max": "11",
+        "format": "money"
+      },
+      "受注単価": {
+        "validation": ["required",
+        "integerP"],
+        "min": "1",
+        "max": "11",
+        "format": "money"
+      },
+      "受注金額": {
+        "validation": ["nonrequired",
+        "integerP"],
+        "min": "1",
+        "max": "11",
+        "format": "money"
+      },
+      "合計金額": {
+        "validation": ["nonrequired",
+        "integerP"],
+        "min": "1",
+        "max": "11",
+        "format": "money"
+      },
+      "納期日": {
+        "validation": ["nonrequired",
+        "yyyymmdd"],
+        "min": "8",
+        "max": "10",
+        "format": "yyyySmmSdd"
+      }
+    }
+  }
+  ]
+}

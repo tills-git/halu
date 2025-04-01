@@ -1,0 +1,55 @@
+{
+  "request": {
+    "comment": "一覧登録（単一テーブル） 照会処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/CustomerListMainte",
+    "mode": "select",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "一覧登録（単一テーブル） 照会処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/CustomerListMainte",
+    "mode": "select",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "照会処理は正常に終了しました。"
+    },
+    "records": [
+    {
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "顧客ＩＤ": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  }
+}

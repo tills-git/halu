@@ -1,0 +1,90 @@
+{
+  "request": {
+    "comment": "明細一覧登録（子テーブル） 照会処理  リクエストデータ",
+    "html" : "Sample/Json/Apps/OrderDetailListMainte",
+    "mode": "select",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "受注番号": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "comment": "明細一覧登録（子テーブル） 照会処理  レスポンスデータ",
+    "html" : "Sample/Json/Apps/OrderDetailListMainte",
+    "mode": "select",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "照会処理は正常に終了しました。"
+    },
+    "records": [
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "受注番号": {
+            "value": [""]
+          },
+          "顧客氏名": {
+            "value": [""]
+          },
+          "受注日": {
+            "value": [""]
+          },
+          "合計金額": {
+            "value": [""]
+          }
+        }
+      },
+      {
+        "id": "detail",
+        "before": "",
+        "after": "",
+        "multiline": "yes",
+        "record": {
+          "削除": {
+            "value": [""]
+          },
+          "明細番号": {
+            "value": [""]
+          },
+          "商品名称": {
+            "value": [""]
+          },
+          "受注数量": {
+            "value": [""]
+          },
+          "受注単価": {
+            "value": [""]
+          },
+          "受注金額": {
+            "value": [""]
+          },
+          "納期日": {
+            "value": [""]
+          },
+          "備考": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  }
+}

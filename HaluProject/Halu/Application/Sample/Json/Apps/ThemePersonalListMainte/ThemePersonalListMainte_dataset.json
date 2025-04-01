@@ -1,0 +1,47 @@
+{
+  "comment": "個人用テーマ設定 dataset",
+  "html": "Sample/Json/Apps/ThemePersonalListMainte",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [{
+    "id": "login",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ユーザＩＤ": {
+        "value": [""]
+      },
+      "ユーザ名称": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "選択テーマコード": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "detail",
+    "multiline": "yes",
+    "defaultline": "0",
+    "record": {
+      "テーマコード": {
+        "value": [""]
+      },
+      "テーマ名称": {
+        "value": [""]
+      },
+      "使用": {
+        "value": [""]
+      }
+    }
+  }]
+}

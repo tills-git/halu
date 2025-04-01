@@ -1,0 +1,28 @@
+{
+  "comment": "個人用テーマ設定 validation",
+  "html": "Sample/Json/Apps/ThemePersonalListMainte",
+  "records": [{
+    "id": "detail",
+    "multiline": "yes",
+    "record": {
+      "テーマコード": {
+        "validation": ["nonrequired",
+        "free"],
+        "min": "1",
+        "max": "100"
+      },
+      "テーマ名称": {
+        "validation": ["nonrequired",
+        "free"],
+        "min": "1",
+        "max": "100"
+      },
+      "使用": {
+        "validation": ["nonrequired",
+        "free"],
+        "min": "0",
+        "max": "2"
+      }
+    }
+  }]
+}

@@ -1,0 +1,10 @@
+{
+	"comment": "受注ヘッダ・受注明細データ更新 バッチ起動 validation",
+	"html": "Sample/Json/Apps/BatchOrderUploadStart",
+	"records": [{
+		"id": "header",
+		"multiline": "no",
+		"record": {
+		}
+	}]
+}

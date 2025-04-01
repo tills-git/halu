@@ -1,0 +1,38 @@
+{
+  "request": {
+    "comment": "バッチ一覧表 再処理のrequestデータ",
+    "html": "Sample/Json/Apps/BatchDivisionList",
+    "mode": "restart",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "comment": "バッチ管理テーブル ＩＤ",
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "再処理バッチ管理ＩＤ": {
+          "value": [""]
+        },
+        "再処理バッチ分割管理ＩＤ": {
+          "value": [""]
+        }
+      }
+    }]
+  },
+  "response": {
+    "comment": "バッチ分割処理 一覧表 再処理のresponseデータ",
+    "html": "Sample/Json/Apps/BatchDivisionList",
+    "mode": "restart",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "再処理は正常に終了しました。"
+    }
+  }
+}

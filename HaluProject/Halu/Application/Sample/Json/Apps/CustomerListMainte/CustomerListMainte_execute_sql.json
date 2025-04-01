@@ -1,0 +1,151 @@
+{
+  "comment": "一覧登録（単一テーブル） 更新処理",
+  "html": "Sample/Json/Apps/CustomerListMainte",
+  "dbname": "sample",
+  "mode": "execute",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "更新処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "顧客マスタ 訂正処理",
+    "id": "update",
+    "before": "setData('detail', 'update', '顧客ＩＤ')",
+    "after":  "",
+    "sql": {
+      "type": "update",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "顧客",
+        "where": "顧客ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "yes",
+      "record": {
+        "顧客氏名": {
+          "value": [""],
+          "field": "顧客氏名"
+        },
+        "備考": {
+          "value": [""],
+          "field": "備考"
+        },
+        "削除": {
+          "value": [""],
+          "field": "削除フラグ"
+        },
+        "更新日時": {
+          "value": [""],
+          "funct": "CURRENT_TIMESTAMP"
+        },
+        "更新ユーザ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザ名称"
+        },
+        "顧客ＩＤ": {
+          "value": [""],
+          "field": "顧客ＩＤ"
+        }
+      }
+    }
+  },
+  {
+    "comment": "顧客マスタ 登録処理",
+    "id": "insert",
+    "before": "setData('detail', 'insert', '顧客ＩＤ')",
+    "after":  "",
+    "sql": {
+      "type": "insert",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "顧客",
+        "where": "",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "yes",
+      "record": {
+        "顧客氏名": {
+          "value": [""],
+          "field": "顧客氏名"
+        },
+        "備考": {
+          "value": [""],
+          "field": "備考"
+        },
+        "登録日時": {
+          "value": [""],
+          "funct": "CURRENT_TIMESTAMP"
+        },
+        "登録ユーザ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザ名称"
+        },
+        "更新日時": {
+          "value": [""],
+          "funct": "CURRENT_TIMESTAMP"
+        },
+        "更新ユーザ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザ名称"
+        },
+        "削除": {
+          "value": [""],
+          "field": "削除フラグ",
+          "funct": "'0'"
+        }
+      }
+    }
+  },
+  {
+    "comment": "顧客マスタ 照会処理",
+    "id": "detail",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "顧客",
+        "where": "削除フラグ='0'",
+        "order": "顧客ＩＤ"
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "顧客ＩＤ": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""],
+          "field": "削除フラグ"
+        }
+      }
+    }
+  }
+  ]
+}

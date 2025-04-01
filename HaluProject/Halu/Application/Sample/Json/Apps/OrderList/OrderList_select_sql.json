@@ -1,0 +1,115 @@
+{
+  "comment": "一覧照会（親子テーブル） 照会処理",
+  "html": "Sample/Json/Apps/OrderList",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "総件数を取得する",
+    "id": "total_count",
+    "before": "setSql_OrderList('header', 'total_count', 'genesql')",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+        [
+          "受注ヘッダ AS hdr"
+         ,"LEFT OUTER JOIN 受注明細 AS dtl ON (hdr.受注番号 = dtl.受注番号)"
+         ,"LEFT OUTER JOIN 顧客 AS cst ON (hdr.顧客ＩＤ = cst.顧客ＩＤ)"
+        ],
+        "where": "true &&",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "トータル件数": {
+          "value": [""],
+          "funct": "count(distinct hdr.受注番号)"
+        }
+      }
+    }
+  },
+  {
+    "comment": "オフセット行数を計算する。",
+    "id": "detail",
+    "before": 
+    [
+       "setSql_OrderList('header', 'detail', 'genesql')"
+      ,"getOffsetLineOfOrderList('header', 'detail')"
+    ],
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+        [
+          "受注ヘッダ AS hdr"
+         ,"LEFT OUTER JOIN 受注明細 AS dtl ON (hdr.受注番号 = dtl.受注番号)"
+         ,"LEFT OUTER JOIN 顧客 AS cst ON (hdr.顧客ＩＤ = cst.顧客ＩＤ)"
+        ],
+        "where": "true && GROUP BY hdr.受注番号, cst.顧客氏名, hdr.受注日",
+        "order": "hdr.受注番号, hdr.受注日",
+        "limit": "? OFFSET ?"
+      }
+    },    "input": {
+      "multiline": "no",
+      "record": {
+        "ページライン数": {
+          "value": [""],
+          "field": "フィールド名",
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ページライン数"
+        },
+        "オフセットライン数": {
+          "value": [""]
+        }
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "field": "受注番号",
+          "table": "hdr"
+        },
+        "顧客氏名": {
+          "value": [""],
+          "field": "顧客氏名",
+          "table": "cst"
+        },
+        "受注日": {
+          "value": [""],
+          "funct": "TO_CHAR(hdr.受注日, 'YYYY/MM/DD')"
+        },
+        "受注金額": {
+          "value": [""],
+          "funct": "TO_CHAR(hdr.受注金額合計, 'FM999,999,999')"
+        },
+        "明細数": {
+          "value": [""],
+          "funct": "COUNT(dtl.明細番号)"
+        }
+      }
+    }
+  }]
+}

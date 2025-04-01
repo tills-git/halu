@@ -1,0 +1,33 @@
+{
+  "comment": "受注データ アップロード処理 dataset",
+  "html": "Sample/Json/Apps/OrderUpload",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [{
+		"id": "login",
+		"multiline": "no",
+		"defaultline": "0",
+		"record": {
+			"ユーザＩＤ": {
+				"value": [""],
+				"idx": [""]
+			},
+			"ユーザ名称": {
+				"value": [""],
+				"idx": [""]
+			}
+		}
+	},
+	{
+    "comment": "ファイル名",
+    "id": "header",
+    "multiline": "no",
+    "record": {
+      "ファイル名": {
+        "value": [""]
+      }
+    }
+  }]
+}

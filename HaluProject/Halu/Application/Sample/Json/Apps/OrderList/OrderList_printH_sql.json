@@ -1,0 +1,94 @@
+{
+  "comment": "受注一覧表（Ｈ） 前処理",
+  "html": "Sample/Json/Apps/OrderList",
+  "dbname": "sample",
+  "mode": "printH",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "受注一覧表（Ｈ） 前処理は正常に終了しました。"
+  },
+  "sqls": 
+  [
+  { 
+    "comment": "プリント処理のキーデータを取得する",
+    "id": "printKey",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql":
+      [
+        "SELECT"
+       ,"  TO_CHAR(NOW()  , 'YYYY/MM/DD HH24:MI:SS') AS 処理日時"
+      ],
+      "genesql": {
+        "dist": "",
+        "from": "",
+        "where": "",
+        "order": ""
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "処理日時": {
+          "value": [""]
+        }
+      }
+    }
+  },
+  {
+    "comment": "プリント処理用パラメータを設定する",
+    "id": "printParam",
+    "html": "Sample/Json/Apps/OrderListPrint",
+    "mode": "printH",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "nosql",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "",
+        "where": "",
+        "order": "",
+        "limit": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "検索顧客ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索顧客ＩＤ"
+        },
+        "検索顧客氏名": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索顧客氏名"
+        },
+        "検索受注日カラ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索受注日カラ"
+        },
+        "検索受注日マデ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索受注日マデ"
+        }
+      }
+    }
+  }
+  ]
+}

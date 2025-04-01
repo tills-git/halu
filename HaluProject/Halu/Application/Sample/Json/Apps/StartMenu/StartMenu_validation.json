@@ -1,0 +1,16 @@
+{
+"comment": "メニュー validation",
+"html": "Sample/Json/Apps/StartMenu",
+"records": [{
+  "id": "header",
+  "multiline": "no",
+  "record": {
+     "ダミー": {
+      "validation": ["nonrequired",
+         "free"],
+       "min": "1",
+        "max": "1"
+      }
+    }
+  }]
+}

@@ -1,0 +1,18 @@
+{
+  "html": "Sample/Json/Apps/BatchList",
+  "records": [{
+    "id": "header",
+    "multiline": "no",
+    "record": {
+      "ページライン数": {
+        "validation": ["required"]
+      },
+      "カレントページ": {
+        "validation": ["required"]
+      },
+      "バッチ管理削除ＩＤ": {
+        "validation": ["nonrequired"]
+      }
+    }
+  }]
+}

@@ -1,0 +1,123 @@
+{
+  "comment": "明細一覧登録（子テーブル） 照会処理",
+  "html": "Sample/Json/Apps/OrderDetailListMainte",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "受注ヘッダ 照会処理",
+    "id": "header",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+        [
+          "受注ヘッダ AS hdr"
+          ,"LEFT OUTER JOIN 顧客 AS cst ON (hdr.顧客ＩＤ = cst.顧客ＩＤ)"
+        ],
+        "where": "hdr.受注番号 = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "field": "受注番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""],
+          "field": "cst.顧客氏名"
+        },
+        "受注日": {
+          "value": [""],
+          "funct": "TO_CHAR(hdr.受注日, 'YYYY/MM/DD')"
+        },
+        "合計金額": {
+          "value": [""],
+          "funct": "TO_CHAR(hdr.受注金額合計, 'FM999999999')"
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注明細 照会処理",
+    "id": "detail",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+        [
+          "受注明細 AS dtl"
+        ],
+        "where": "dtl.受注番号 = ?",
+        "order": "dtl.明細番号"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "受注番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "明細番号": {
+          "value": [""]
+        },
+        "商品名称": {
+          "value": [""]
+        },
+        "受注数量": {
+          "value": [""],
+          "funct": "TO_CHAR(dtl.受注数量, 'FM999999999')"
+        },
+        "受注単価": {
+          "value": [""],
+          "funct": "TO_CHAR(dtl.受注単価, 'FM999999999')"
+        },
+        "受注金額": {
+          "value": [""],
+          "funct": "TO_CHAR(dtl.受注金額, 'FM999999999')"
+        },
+        "納期日": {
+          "value": [""],
+          "funct": "TO_CHAR(dtl.納期日, 'YYYYMMDD')"
+        },
+        "備考": {
+          "value": [""]
+        }
+      }
+    }
+  }
+  ]
+}

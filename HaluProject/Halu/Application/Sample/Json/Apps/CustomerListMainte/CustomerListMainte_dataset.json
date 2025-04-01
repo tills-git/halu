@@ -1,0 +1,42 @@
+{
+  "comment": "一覧登録（単一テーブル） dataset",
+  "html": "Sample/Json/Apps/CustomerListMainte",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [
+  {
+    "id": "login",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ユーザＩＤ": {
+        "value": [""]
+      },
+      "ユーザ名称": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "detail",
+    "multiline": "yes",
+    "defaultline": "10",
+    "record": {
+      "顧客ＩＤ": {
+        "value": [""]
+      },
+      "顧客氏名": {
+        "value": [""]
+      },
+      "備考": {
+        "value": [""]
+      },
+      "削除": {
+        "value": [""]
+      }
+    }
+  }
+  ]
+}

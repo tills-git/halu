@@ -1,0 +1,57 @@
+{
+  "request": {
+    "comment": "単票登録（単一テーブル） 初期処理 リクエストデータ",
+    "html": "Sample/Json/Apps/UserDetailMainte",
+    "mode": "init",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    ]
+  },
+  "response": {
+    "comment": "単票登録（単一テーブル） 初期処理 レスポンスデータ",
+    "html": "Sample/Json/Apps/UserDetailMainte",
+    "mode": "init",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "初期処理は正常に終了しました。"
+    },
+    "records": [
+      {
+        "comment": "テーマコード ドロップリスト",
+        "id": "選択検索テーマコード",
+        "before": "",
+        "after": "",
+        "multiline": "yes",
+        "record": {
+          "list_テーマコード": {
+            "value": [""]
+          },
+          "list_テーマ名称": {
+            "value": [""]
+          }
+        }
+      },
+      {
+        "comment": "メニュー名 ドロップリスト",
+        "id": "選択検索メニュー名",
+        "before": "",
+        "after": "",
+        "multiline": "yes",
+        "record": {
+          "list_メニューコード": {
+            "value": ["StartMenu","AdminMenu"]
+          },
+          "list_メニュー名": {
+            "value": ["StartMenu","AdminMenu"]
+          }
+        }
+      }
+    ]
+  }
+}

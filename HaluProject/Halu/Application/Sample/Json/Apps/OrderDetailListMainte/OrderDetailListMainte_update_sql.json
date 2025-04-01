@@ -1,0 +1,288 @@
+{
+  "comment": "明細一覧登録（子テーブル） 訂正処理",
+  "html": "Sample/Json/Apps/OrderDetailListMainte",
+  "dbname": "sample",
+  "mode": "update",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "訂正処理は正常に終了しました。"
+  },
+  "sqls": [
+    {
+      "comment": "受注明細 削除処理",
+      "id": "detail_delete",
+      "before": "setDeleteData('detail', 'detail_delete', '明細番号')",
+      "after":  "",
+      "sql": {
+        "type": "delete",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "受注明細",
+          "where": "受注番号 = ? AND 明細番号 = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "yes",
+        "record": {
+          "受注番号": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "受注番号"
+          },
+          "明細番号": {
+            "value": [""]
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注明細 登録処理",
+      "id": "detail_insert",
+      "before": "setInsertData('detail', 'detail_insert', '明細番号')",
+      "after":  "",
+      "sql": {
+        "type": "insert",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "受注明細",
+          "where": "",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "yes",
+        "record": {
+          "受注番号": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "受注番号"
+          },
+          "明細番号": {
+            "value": [""]
+          },
+          "商品名称": {
+            "value": [""]
+          },
+          "受注数量": {
+            "value": [""]
+          },
+          "受注単価": {
+            "value": [""]
+          },
+          "受注金額": {
+            "value": [""]
+          },
+          "納期日": {
+            "value": [""]
+          },
+          "備考": {
+            "value": [""]
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注明細 訂正処理",
+      "id": "detail_update",
+      "before": "setUpdateData('detail', 'detail_update', '明細番号')",
+      "after":  "",
+      "sql": {
+        "type": "update",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "受注明細",
+          "where": "受注番号 = ? AND 明細番号 = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "yes",
+        "record": {
+          "商品名称": {
+            "value": [""]
+          },
+          "受注数量": {
+            "value": [""]
+          },
+          "受注単価": {
+            "value": [""]
+          },
+          "受注金額": {
+            "value": [""]
+          },
+          "納期日": {
+            "value": [""]
+          },
+          "備考": {
+            "value": [""]
+          },
+            "受注番号": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "受注番号"
+          },
+          "明細番号": {
+            "value": [""]
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注ヘッダ 訂正処理",
+      "id": "header_update",
+      "before": "",
+      "after":  "",
+      "sql": {
+        "type": "update",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "受注ヘッダ",
+          "where": "受注番号 = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "yes",
+        "record": {
+          "合計金額": {
+            "value": [""],
+            "field": "受注金額合計",
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "合計金額"
+          },
+            "受注番号": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "受注番号"
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注ヘッダ 照会処理",
+      "id": "header",
+      "before": "",
+      "after":  "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": 
+          [
+            "受注ヘッダ AS hdr"
+            ,"LEFT OUTER JOIN 顧客 AS cst ON (hdr.顧客ＩＤ = cst.顧客ＩＤ)"
+          ],
+          "where": "hdr.受注番号 = ?",
+          "order": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "受注番号": {
+            "value": [""],
+            "field": "受注番号"
+          }
+        }
+      },
+      "output": {
+        "multiline": "no",
+        "record": {
+          "受注番号": {
+            "value": [""]
+          },
+          "顧客氏名": {
+            "value": [""],
+            "field": "cst.顧客氏名"
+          },
+          "受注日": {
+            "value": [""],
+            "funct": "TO_CHAR(hdr.受注日, 'YYYY/MM/DD')"
+          },
+          "合計金額": {
+            "value": [""],
+            "funct": "TO_CHAR(hdr.受注金額合計, 'FM999999999')"
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注明細 照会処理",
+      "id": "detail",
+      "before": "",
+      "after":  "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": 
+          [
+            "受注明細 AS dtl"
+          ],
+          "where": "dtl.受注番号 = ?",
+          "order": "dtl.明細番号"
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+          "受注番号": {
+            "value": [""],
+            "fromtype": "request",
+            "fromid": "header",
+            "fromio": "",
+            "fromname": "受注番号"
+          }
+        }
+      },
+      "output": {
+        "multiline": "yes",
+        "record": {
+          "明細番号": {
+            "value": [""]
+          },
+          "商品名称": {
+            "value": [""]
+          },
+          "受注数量": {
+            "value": [""],
+            "funct": "TO_CHAR(dtl.受注数量, 'FM999999999')"
+          },
+          "受注単価": {
+            "value": [""],
+            "funct": "TO_CHAR(dtl.受注単価, 'FM999999999')"
+          },
+          "受注金額": {
+            "value": [""],
+            "funct": "TO_CHAR(dtl.受注金額, 'FM999999999')"
+          },
+          "納期日": {
+            "value": [""],
+            "funct": "TO_CHAR(dtl.納期日, 'YYYYMMDD')"
+          },
+          "備考": {
+            "value": [""]
+          }
+        }
+      }
+    }
+  ]
+}

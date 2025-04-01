@@ -1,0 +1,76 @@
+{
+  "comment": "受注データ アップロード 実行処理",
+  "html": "Sample/Json/Apps/OrderUpload",
+  "dbname": "sample",
+  "mode": "execute",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "受注データ アップロード 実行処理は正常に終了されました。"
+  },
+  "sqls": [
+  {
+    "comment": "受注データ 削除処理 受注ＣＳＶへ登録する",
+    "id": "delete受注ＣＳＶ",
+    "before": "",
+    "after": "insertJyutyuCsv('header')",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注ＣＳＶ",
+        "where": "true",
+        "order": ""
+      }
+    }
+  },
+  {
+    "comment": "バッチ パラメータ情報",
+    "id": "batchParam",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "nosql"
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        },
+        "ユーザ名称": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザ名称"
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチ処理の起動情報",
+    "id": "batchStartup",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "nosql"
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ処理名": {
+          "value": ["受注ヘッダ・受注明細データ更新"]
+        },
+        "バッチロードパス名": {
+          "value": ["Sample/Server/BatchLoad/BatchOrderUploadStart.py"]
+        }
+      }
+    }
+  }]
+}

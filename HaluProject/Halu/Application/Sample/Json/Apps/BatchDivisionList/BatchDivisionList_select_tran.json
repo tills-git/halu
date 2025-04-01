@@ -1,0 +1,98 @@
+{
+  "request": {
+    "comment": "バッチ分割処理 一覧表 初期処理のrequestデータ",
+    "html": "Sample/Json/Apps/BatchDivisionList",
+    "mode": "select",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "comment": "テーブルの行数",
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ページライン数": {
+          "value": [""]
+        },
+        "カレントページ": {
+          "value": [""]
+        },
+        "バッチ管理ＩＤ": {
+          "value": [""]
+        }
+      }
+    }]
+  },
+  "response": {
+    "comment": "バッチ分割処理 一覧表 初期処理のresponseデータ",
+    "html": "Sample/Json/Apps/BatchDivisionList",
+    "mode": "select",
+    "prog": "yes",
+    "message": {
+      "status": "OK",
+      "msg": "照会処理は正常に終了しました。"
+    },
+    "records": [{
+      "comment": "テーブルページング情報（行数・カレント行・総ページ数・総件数）getMaxPageCount：総ページ数を計算する。",
+      "id": "header",
+      "before": "",
+      "after": "getMaxPageCountOfBatchDivisionList('header')",
+      "multiline": "no",
+      "record": {
+        "ページライン数": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ページライン数"
+        },
+        "カレントページ": {
+          "value": ["1"],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "カレントページ"
+        },
+        "最大ページ": {
+          "value": [""]
+        },
+        "トータル件数": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "total_count",
+          "fromio": "output",
+          "fromname": "トータル件数"
+        }
+      }
+    },
+    {
+      "comment": "テーブルの明細データ（分類ヘッダー）",
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "明細バッチ管理ＩＤ": {
+          "value": [""]
+        },
+        "明細バッチ分割管理ＩＤ": {
+          "value": [""]
+        },
+        "処理名": {
+          "value": [""]
+        },
+        "開始日時": {
+          "value": [""]
+        },
+        "終了日時": {
+          "value": [""]
+        }
+      }
+    }]
+  }
+}

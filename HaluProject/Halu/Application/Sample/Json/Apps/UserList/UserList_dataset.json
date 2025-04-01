@@ -1,0 +1,101 @@
+{
+  "comment": "一覧照会（単一テーブル） dataset",
+  "html": "Sample/Json/Apps/UserList",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [
+  {
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "1",
+    "record": {
+      "ページライン数": {
+        "value": [""]
+      },
+      "カレントページ": {
+        "value": [""]
+      },
+      "最大ページ": {
+        "value": [""]
+      },
+      "トータル件数": {
+        "value": [""]
+      },
+      "検索ユーザコード": {
+        "value": [""]
+      },
+      "検索ユーザ名": {
+        "value": [""]
+      },
+      "検索パスワード": {
+        "value": [""]
+      },
+      "検索メニュー名": {
+        "value": [""]
+      },
+      "検索テーマコード": {
+        "value": [""]
+      },
+      "検索備考": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "detail",
+    "multiline": "yes",
+    "defaultline": "20",
+    "record": {
+      "ユーザＩＤ": {
+        "value": [""]
+      },
+      "ユーザコード": {
+        "value": [""]
+      },
+      "ユーザ名": {
+        "value": [""]
+      },
+      "パスワード": {
+        "value": [""]
+      },
+      "メニュー名": {
+        "value": [""]
+      },
+      "テーマコード": {
+        "value": [""]
+      },
+      "備考": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "選択検索メニュー名",
+    "multiline": "yes",
+    "defaultline": "0",
+    "record": {
+      "list_メニューコード": {
+        "value": [""]
+      },
+      "list_メニュー名": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "選択検索テーマコード",
+    "multiline": "yes",
+    "defaultline": "0",
+    "record": {
+      "list_テーマコード": {
+        "value": [""]
+      },
+      "list_テーマ名称": {
+        "value": [""]
+      }
+    }
+  }
+  ]
+}

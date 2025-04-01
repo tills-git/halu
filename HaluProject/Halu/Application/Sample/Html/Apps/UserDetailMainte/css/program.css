@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/* #mainForm高さ調整 */
+#mainForm {
+  height: calc(100vh - 120px);
+  min-height: 350px
+}
+
+/* ヘッダテーブルの表示窓 */
+#header-Table1  {
+  max-width: calc(100vw - 80px);
+  width: 600px;
+  margin: auto;
+}
+
+/* 必須項目の後ろにアスタリスクをつける */
+.required:after {
+  color: #E00;
+  content: " *";
+}

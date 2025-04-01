@@ -1,0 +1,158 @@
+{
+  "comment": "単票登録（単一テーブル） 訂正処理",
+  "html": "Sample/Json/Apps/UserDetailMainte",
+  "dbname": "sample",
+  "mode": "update",
+  "prog": "no",
+  "model": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "訂正処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "ユーザマスタ 訂正処理",
+    "id": "update",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "update",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "ユーザ",
+        "where": "ユーザＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ユーザコード": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ユーザコード"
+        },
+        "ユーザ名": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ユーザ名"
+        },
+        "パスワード": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "パスワード"
+        },
+        "メニュー名": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "メニュー名"
+        },
+        "テーマコード": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "テーマコード"
+        },
+        "備考": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "備考"
+        },
+        "メールアドレス": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "メールアドレス"
+        },
+        "更新日時": {
+          "value": [""],
+          "funct": "CURRENT_TIMESTAMP"
+        },
+        "更新ユーザ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "login",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        },
+        "ユーザＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        }
+      }
+    }
+  },
+  {
+    "comment": "ユーザマスタ 照会処理",
+    "id": "header",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "ユーザ",
+        "where": "ユーザＩＤ = ?"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザコード": {
+          "value": [""]
+        },
+        "ユーザ名": {
+          "value": [""]
+        },
+        "パスワード": {
+          "value": [""]
+        },
+        "メニュー名": {
+          "value": [""]
+        },
+        "テーマコード": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "メールアドレス": {
+          "value": [""]
+        }
+      }
+    }
+  }
+  ]
+}

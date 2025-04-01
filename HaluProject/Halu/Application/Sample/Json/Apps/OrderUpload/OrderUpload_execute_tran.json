@@ -1,0 +1,49 @@
+{
+  "request": {
+    "comment": "受注データ アップロード 実行処理 リクエストデータ",
+    "html": "Sample/Json/Apps/OrderUpload",
+    "mode": "execute",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "id": "login",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": ["TEST_ID001"]
+        },
+        "ユーザ名称": {
+          "value": ["TEST_USER_NAME"]
+        }
+      }
+    },
+    {
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ファイル名": {
+          "value": [""]
+        }
+      }
+    }
+  ]
+  },
+  "response": {
+    "comment": "受注データ アップロード 実行処理 レスポンスデータ",
+    "html": "Sample/Json/Apps/OrderUpload",
+    "mode": "execute",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "受注データ アップロード 実行処理は正常に起動されました。"
+    }
+  }
+}

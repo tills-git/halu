@@ -1,0 +1,67 @@
+{
+  "comment": "単票登録（単一テーブル） dataset",
+  "html": "Sample/Json/Apps/UserDetailMainte",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [
+  {
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ユーザＩＤ": {
+        "value": [""]
+      },
+      "ユーザコード": {
+        "value": [""]
+      },
+      "ユーザ名": {
+        "value": [""]
+      },
+      "パスワード": {
+        "value": [""]
+      },
+      "メニュー名": {
+        "value": [""]
+      },
+      "メールアドレス": {
+        "value": [""]
+      },
+      "テーマコード": {
+        "value": [""]
+      },
+      "備考": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "選択検索メニュー名",
+    "multiline": "yes",
+    "defaultline": "0",
+    "record": {
+      "list_メニューコード": {
+        "value": [""]
+      },
+      "list_メニュー名": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "id": "選択検索テーマコード",
+    "multiline": "yes",
+    "defaultline": "0",
+    "record": {
+      "list_テーマコード": {
+        "value": [""]
+      },
+      "list_テーマ名称": {
+        "value": [""]
+      }
+    }
+  }
+  ]
+}

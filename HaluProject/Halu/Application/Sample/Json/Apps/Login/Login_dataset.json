@@ -1,0 +1,23 @@
+{
+  "comment": "ログイン dataset",
+  "html": "Sample/Json/Apps/Login",
+  "mode": "check",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [{
+    "comment": "ログイン情報（ログインＩＤ・パスワード）",
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ログインＩＤ": {
+        "value": [""]
+      },
+      "パスワード": {
+        "value": [""]
+      }
+    }
+  }]
+}

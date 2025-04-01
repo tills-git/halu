@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+/* #mainForm高さ調整 */
+#mainForm {
+  height: calc(100vh - 120px);
+  min-height: 350px
+}
+
+/* コピー　開始 */
+@media screen and (max-width: 1919px) {
+/* ▼表示領域が1919px以下の場合ここから */
+
+/* スクロールテーブルの表示窓 */
+#scrollable-Table  {
+  width: calc(534px + 17px);
+  margin: 10px auto;
+  overflow-x: auto;
+}
+
+/* スクロールテーブルのヘッダ */
+#scrollable-HTable  {
+  width: 534px;
+  height: 34px;
+  overflow: hidden;
+}
+
+/* スクロールテーブルの明細 */
+#scrollable-DTable  {
+  overflow-x: auto;      /* 水平スクロールバー auto:自動表示 hidden:非表示 */
+  overflow-y: scroll;      /* 垂直スクロールバー auto:自動表示 hidden:非表示 */
+  width: calc(534px + 17px);
+  height: calc(100vh - 340px);
+}
+
+
+/* ▲表示領域が1919px以下の場合ここまで */
+}
+
+
+
+@media screen and (min-width: 1920px) {
+/* ▼表示領域が1920px以上の場合ここから */
+
+/* スクロールテーブルの表示窓 */
+#scrollable-Table  {
+  width: calc(534px + 17px);
+  margin: 10px auto;
+  overflow-x: auto;
+}
+
+/* スクロールテーブルのヘッダ */
+#scrollable-HTable  {
+  width: 534px;
+  height: 34px;
+  overflow: hidden;
+}
+
+/* スクロールテーブルの明細 */
+#scrollable-DTable  {
+  overflow-x: auto;        /* 水平スクロールバー auto:自動表示 hidden:非表示 */
+  overflow-y: scroll;        /* 垂直スクロールバー auto:自動表示 hidden:非表示 */
+  width: calc(534px + 17px);
+  height: calc(100vh - 340px);
+}
+
+
+/* ▲表示領域が1920pxpx以上の場合ここまで */
+}
+/* コピー　終了 */
+
+
+
+
+#mainTableH {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 幅のオーバ部分を折り返す指示 */
+#mainTableH {
+  word-break: break-all;
+  white-space: normal;
+}
+
+#mainTableH tr {
+  height: 32px;
+}
+
+#mainTable {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 幅のオーバ部分を折り返す指示 */
+#mainTable {
+  word-break: break-all;
+  white-space: normal;
+}
+
+#mainTable tr {
+  height: 28px;
+}
+

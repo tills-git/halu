@@ -1,0 +1,55 @@
+{
+  "request": {
+    "comment": "受注ヘッダ・受注明細 更新 バッチ処理　リクエストデータ",
+    "html": "Sample/Json/Apps/BatchOrderUploadProc",
+    "mode": "proc",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+        "comment": "バッチ パラメータ情報",
+        "id": "batchParam",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          },
+          "ユーザ名称": {
+            "value": [""]
+          }
+        }
+    },
+    {
+      "comment": "バッチ キー情報",
+      "id": "batchKey",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        },
+        "明細番号": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "受注ヘッダ・受注明細 更新 バッチ処理　レスポンスデータ",
+    "html": "Sample/Json/Apps/BatchOrderUploadProc",
+    "mode": "proc",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "受注ヘッダ・受注明細 更新 バッチ処理を正常に終了しました。"
+    }
+  }
+}

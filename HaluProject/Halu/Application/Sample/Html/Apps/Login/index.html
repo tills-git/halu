@@ -1,0 +1,136 @@
+﻿<!-- ***********************************************
+ * Framework Name  :  Halu
+ * (c) 2025 TILLS & Co.
+ *********************************************** -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Haluサンプル　ログイン</title> 
+<link href="../../../../../Application/Sample/Html/css/bootstrap.min_default.css?var=201710041453" rel="stylesheet"/>
+
+<script type="text/javascript" src="../../../../../System/Html/js/jquery-3.4.1.min.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/jquery-ui-1.12.1/jquery-ui.min.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/jquery.ui.touch-punch/jquery.ui.touch-punch.min.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/bootstrap-4.4.1/bootstrap.bundle.min.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/template/jquery.loadTemplate-1.4.5.min.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/bignumberjs/bignumber.min.js?var=201710041453"></script>
+
+<script type="text/javascript" src="../../../../../System/Html/js/halumvc-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/halumodel.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/haluview.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/halucontroller.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/haluentertabpfkey.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/haluvalidation.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../System/Html/js/haluappspec.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/JavaScript" src="../../../../../System/Html/js/webstorage-1.0.0.js?var=201710041453"></script>
+
+<script type="text/javascript" src="../../../../../Application/Sample/Html/js/login.view.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/js/login.model.mixin-1.0.0.js?var=201710041453"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/js/login.controller.mixin-1.0.0.js?var=201710041453"></script>
+
+<script type="text/javascript" src="../../../../../Application/Sample/Html/Apps/Login/login.appspec.js?var=201905011454"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/Apps/Login/login.model.js?var=201905011454"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/Apps/Login/login.view.js?var=201905011454"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/Apps/Login/login.controller.js?var=201905011454"></script>
+<script type="text/javascript" src="../../../../../Application/Sample/Html/Apps/Login/login.main.js?var=201905011454"></script>
+</head>
+
+<!-- ================================================================================================================= -->
+<body>                                                                                          <!-- ▼body部 スタート -->
+<div class="container bg-secondary">                                                         <!-- ▼container スタート -->
+<form id="mainForm">                                                                              <!-- ▼form スタート -->
+<div class="d-flex flex-column">                                                    <!-- ▼d-flex flex-column スタート -->
+<!-- ================================================================================================================= -->
+
+
+<!-- ================================================================================================================= -->
+<div class="halu-page-header sticky-top bg-primary" style="height:60px;">           <!-- ▼halu-page-header スタート -->
+<!-- ================================================================================================================= -->
+  <div class="d-flex justify-content-start align-items-center">
+    <div class="d-flex">
+      <div class="mx-1 mt-1 halu-page-header-icon" style="width:120px; height:100%;">
+        <img src="../../../../../Application/Sample/Html/images/Halulogo_238-85_02business.png" class="img-fluid">
+      </div>
+
+      <div class="mx-1 mt-3">
+        <button type="button" class="btn btn-info btn-sm mx-1" id="クリア"   name="クリア"   style="width:100px;">クリア：Esc</button>
+        <button type="button" class="btn btn-info btn-sm mx-1" id="ログイン" name="ログイン" style="width:110px;">ログイン：F1</button>
+      </div>
+    </div>
+  
+    <div>
+      <div class="mx-5 mt-3">
+        <h5 id="ヘッダータイトル">Haluサンプル</h5>
+      </div>
+    </div>
+
+  </div>
+<!-- ================================================================================================================= -->
+</div>                                                                                 <!-- halu-page-header エンド -->
+<!-- ================================================================================================================= -->
+
+
+<!-- ================================================================================================================= -->
+<div class="halu-header-login my-4" style="height:220px;">                               <!-- ▼halu-header スタート -->
+<!-- ================================================================================================================= -->
+  <div class="d-flex justify-content-center">
+
+    <div class="d-flex align-items-end" style="height:220px;">
+      <table class="table table-borderless table-sm">
+        <tbody>
+          <tr>
+            <td class="text-center" style="width:150px;">ログインＩＤ</td>
+            <td style="width:260px;">
+              <input type="text" class="form-control form-control-sm text-left" id="ログインＩＤ" name="ログインＩＤ">
+            </td>
+            <td style="width:100px;"></td>
+          </tr>
+          <tr>
+            <td style="width:150px;"></td>
+            <td style="width:260px;"></td>
+            <td style="width:100px;"></td>
+          </tr>
+          <tr>
+            <td class="text-center" style="width:150px;">パスワード</td>
+            <td style="width:260px;">
+              <input type="password" class="form-control form-control-sm text-left" id="パスワード" name="パスワード">
+            </td>
+            <td style="width:100px;"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+<!-- ================================================================================================================= -->
+</div>                                                                                      <!-- ▲halu-header エンド -->
+<!-- ================================================================================================================= -->
+
+
+<!-- ================================================================================================================= -->
+<div class="halu-footer-dummy mt-3" style="height:200px;">                               <!-- ▼halu-footer スタート -->
+<!-- ================================================================================================================= -->
+
+<!-- ================================================================================================================= -->
+</div>                                                                                      <!-- ▲halu-footer エンド -->
+<!-- ================================================================================================================= -->
+
+
+<!-- ================================================================================================================= -->
+<div class="halu-page-footer bg-primary mt-3" style="height:20px;">    <!-- ▼halu-page-footer スタート -->
+<!-- ================================================================================================================= -->
+
+<!-- ================================================================================================================= -->
+</div>                                                                                 <!-- ▲halu-page-footer エンド -->
+<!-- ================================================================================================================= -->
+
+<!-- ================================================================================================================= -->
+</div>                                                                                <!-- ▲d-flex flex-column エンド -->
+</form>                                                                                             <!-- ▲form エンド -->
+</div>                                                                                         <!-- ▲container エンド -->
+</body>                                                                                           <!-- ▲body部 エンド -->
+<!-- ================================================================================================================= -->
+
+</html>

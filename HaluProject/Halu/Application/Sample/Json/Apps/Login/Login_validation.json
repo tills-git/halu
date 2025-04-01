@@ -1,0 +1,23 @@
+{
+  "html": "Sample/Json/Apps/Login",
+  "records": [{
+    "id": "header",
+    "multiline": "no",
+    "record": {
+      "ログインＩＤ": {
+        "validation": ["required",
+        "free"],
+        "min": "1",
+        "max": "20",
+        "format": ""
+      },
+      "パスワード": {
+        "validation": ["required",
+        "free"],
+        "min": "1",
+        "max": "20",
+        "format": ""
+      }
+    }
+  }]
+}

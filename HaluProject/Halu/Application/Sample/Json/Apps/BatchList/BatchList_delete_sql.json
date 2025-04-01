@@ -1,0 +1,123 @@
+{
+  "comment": "バッチ処理　一覧表　処理削除",
+  "html": "Sample/Json/Apps/BatchList",
+  "dbname": "sample",
+  "mode": "delete",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "削除処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "バッチパラメータ管理　テーブル",
+    "id": "batch_param",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチパラメータ管理",
+        "where": "バッチ管理ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理削除ＩＤ"
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチキー管理　テーブル",
+    "id": "batch_key",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチキー管理",
+        "where": "バッチ管理ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理削除ＩＤ"
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチ分割管理　テーブル",
+    "id": "batch_division_controll",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ分割管理",
+        "where": "バッチ管理ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理削除ＩＤ"
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチ管理　テーブル",
+    "id": "batch_controll",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ管理",
+        "where": "バッチ管理ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理削除ＩＤ"
+        }
+      }
+    }
+  }]
+}

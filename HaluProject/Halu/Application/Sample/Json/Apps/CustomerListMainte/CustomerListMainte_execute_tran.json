@@ -1,0 +1,84 @@
+{
+  "request": {
+    "comment": "一覧登録（単一テーブル） 更新処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/CustomerListMainte",
+    "mode": "execute",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+      "id": "login",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザ名称": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "顧客ＩＤ": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "一覧登録（単一テーブル） 更新処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/CustomerListMainte",
+    "mode": "execute",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "更新処理は正常に終了しました。"
+    },
+    "records": [
+    {
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "顧客ＩＤ": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "購入回数": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  }
+}

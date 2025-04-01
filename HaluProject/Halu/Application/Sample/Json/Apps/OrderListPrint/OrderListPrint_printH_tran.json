@@ -1,0 +1,200 @@
+{
+  "request": {
+    "comment": "受注一覧表（Ｈ）帳票処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/OrderListPrint",
+    "mode": "printH",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+      "id": "printKey",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "処理日時": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "printParam",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "検索顧客ＩＤ": {
+          "value": [""]
+        },
+        "検索顧客氏名": {
+          "value": [""]
+        },
+        "検索受注日カラ": {
+          "value": [""]
+        },
+        "検索受注日マデ": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "受注一覧表（Ｈ）帳票処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/OrderListPrint",
+    "mode": "printH",
+    "prog": "no",
+    "excelinfo": {
+      "prog": "yes",
+      "template": "OrderListPrint_printH.xlsx",
+      "savefile": "OrderListPrint_printH.xlsx",
+      "pdfname": "受注一覧表（Ｈ）"
+    },
+    "message": {
+      "status": "OK",
+      "msg": "プリント処理は正常に終了しました。"
+    },
+    "records": [
+    {
+      "comment": "ページヘッダ",
+      "id": "page_header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "excelinfo": {
+        "before": "page_headerH()",
+        "after": "",
+        "pagecontrol": "page_header",
+        "outputcontrol": "all_page",
+        "templatepage": "1"
+      },
+      "record": {
+        "ページ番号": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "E",
+              "row": "1"
+            }
+          }
+        },
+        "顧客氏名Ｈ": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "printParam",
+          "fromio": "input",
+          "fromname": "検索顧客氏名",
+          "excelinfo": {
+            "type":   "str",
+            "cell": {
+              "column": "B",
+              "row": "5"
+            }
+          }
+        },
+        "受注日ＦＲＯＭ": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "printParam",
+          "fromio": "input",
+          "fromname": "検索受注日カラ",
+          "excelinfo": {
+            "type":   "date",
+            "cell": {
+              "column": "C",
+              "row": "5"
+            }
+          }
+        },
+        "受注日ＴＯ": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "printParam",
+          "fromio": "input",
+          "fromname": "検索受注日マデ",
+          "excelinfo": {
+            "type":   "date",
+            "cell": {
+              "column": "D",
+              "row": "5"
+            }
+          }
+        }
+      }
+    },
+    {
+      "comment": "帳票明細",
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "excelinfo": {
+        "before": "",
+        "after": "",
+        "pagecontrol": "detail",
+        "outputcontrol": "all_page",
+        "pagelines": "20",
+        "rowposition": "8",
+        "movedown": "1"
+      },
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "excelinfo": {
+            "type": "str",
+            "cell": {
+              "column": "A",
+              "row": ""
+            }
+          }
+        },
+        "顧客氏名": {
+          "value": [""],
+          "excelinfo": {
+            "type": "str",
+            "cell": {
+              "column": "B",
+              "row": ""
+            }
+          }
+        },
+        "受注日": {
+          "value": [""],
+          "excelinfo": {
+            "type": "date",
+            "cell": {
+              "column": "C",
+              "row": ""
+            }
+          }
+        },
+        "受注金額": {
+          "value": [""],
+          "excelinfo": {
+            "type": "int",
+            "cell": {
+              "column": "D",
+              "row": ""
+            }
+          }
+        },
+        "明細数": {
+          "value": [""],
+          "excelinfo": {
+            "type": "int",
+            "cell": {
+              "column": "E",
+              "row": ""
+            }
+          }
+        }
+      }
+    }
+    ]
+  }
+}

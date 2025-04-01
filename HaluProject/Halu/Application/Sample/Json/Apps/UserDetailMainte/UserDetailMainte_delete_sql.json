@@ -1,0 +1,40 @@
+{
+  "comment": "単票登録（単一テーブル） 削除処理",
+  "html": "Sample/Json/Apps/UserDetailMainte",
+  "dbname": "sample",
+  "mode": "delete",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "削除処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "ユーザマスタ 削除処理",
+    "id": "header_delete",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "delete",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "ユーザ",
+        "where": "ユーザＩＤ = ?"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        }
+      }
+    }
+  }
+  ]
+}

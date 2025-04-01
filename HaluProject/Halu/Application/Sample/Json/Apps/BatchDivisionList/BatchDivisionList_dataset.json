@@ -1,0 +1,60 @@
+{
+  "comment": "バッチ分割処理　一覧表 dataset",
+  "html": "Sample/Json/Apps/BatchDivisionList",
+  "message": {
+    "status": "OK",
+    "msg": ""
+  },
+  "records": [{
+    "comment": "テーブルページング情報（ページ行数・カレントページ・総ページ数・総件数）",
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ページライン数": {
+        "value": [""]
+      },
+      "カレントページ": {
+        "value": [""]
+      },
+      "最大ページ": {
+        "value": [""]
+      },
+      "トータル件数": {
+        "value": [""]
+      },
+      "バッチ管理ＩＤ": {
+        "value": [""]
+      },
+      "再処理バッチ管理ＩＤ": {
+        "value": [""]
+      },
+      "再処理バッチ分割管理ＩＤ": {
+        "value": [""]
+      }
+    }
+  },
+  {
+    "comment": "テーブルの明細データ",
+    "id": "detail",
+    "multiline": "yes",
+    "defaultline": "25",
+    "record": {
+      "明細バッチ管理ＩＤ": {
+        "value": [""]
+      },
+      "明細バッチ分割管理ＩＤ": {
+        "value": [""]
+      },
+      "処理名": {
+        "value": [""]
+      },
+      "開始日時": {
+        "value": [""]
+      },
+      "終了日時": {
+        "value": [""]
+      }
+    }
+  }]
+}

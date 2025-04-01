@@ -1,0 +1,48 @@
+{
+  "comment": "テーマ 照会処理",
+  "html": "Sample/Json/Apps/ThemeListMainte",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "テーマ 照会処理",
+    "id": "detail",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "テーマ",
+        "where": "",
+        "order": "テーマコード"
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "テーマコード": {
+          "value": [""],
+          "field": "テーマコード"
+        },
+        "テーマ名称": {
+          "value": [""],
+          "field": "テーマ名称"
+        },
+        "使用": {
+          "value": [""],
+          "field": "使用中フラグ"
+        },
+        "削除": {
+          "value": [""],
+          "funct": "0"
+        }
+      }
+    }
+  }]
+}

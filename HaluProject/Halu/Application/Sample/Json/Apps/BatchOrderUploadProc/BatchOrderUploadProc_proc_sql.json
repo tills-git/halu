@@ -1,0 +1,315 @@
+{
+  "comment": "受注ヘッダ・受注明細 更新 バッチ処理",
+  "html": "Sample/Json/Apps/BatchOrderUploadProc",
+  "dbname": "sample",
+  "mode": "proc",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "受注ヘッダ・受注明細 更新 バッチ処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "受注ＣＳＶ 読み込み",
+    "id": "TranSelect",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+         [ 
+           "受注ＣＳＶ AS A"
+         ],
+        "where": "A.受注番号 = ? AND A.明細番号 = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "request",
+          "fromid": "batchKey",
+          "fromio": "",
+          "fromname": "受注番号"
+        },
+        "明細番号": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "batchKey",
+          "fromio": "",
+          "fromname": "明細番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "field": "A.受注番号"
+        },
+        "明細番号": {
+          "value": [""],
+          "field": "A.明細番号"
+        },
+        "顧客ＩＤ": {
+          "value": [""],
+          "field": "A.顧客ＩＤ"
+        },
+        "受注日": {
+          "value": [""],
+          "funct": "TO_CHAR(A.受注日, 'YYYY/MM/DD')"
+        },
+        "受注金額合計": {
+          "value": [""],
+          "field": "A.受注金額合計"
+        },
+        "商品名称": {
+          "value": [""],
+          "field": "A.商品名称"
+        },
+        "納期日": {
+          "value": [""],
+          "funct": "TO_CHAR(A.納期日, 'YYYY/MM/DD')"
+        },
+        "受注数量": {
+          "value": [""],
+          "field": "A.受注数量"
+        },
+        "受注単価": {
+          "value": [""],
+          "field": "A.受注単価"
+        },
+        "受注金額": {
+          "value": [""],
+          "field": "A.受注金額"
+        },
+        "備考": {
+          "value": [""],
+          "field": "A.備考"
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注ヘッダ 検索処理",
+    "id": "Hselect",
+    "before": "" ,
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注ヘッダ",
+        "where": "受注番号 = ?",
+        "order": "",
+        "limit": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "request",
+          "fromid": "batchKey",
+          "fromio": "",
+          "fromname": "受注番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注ヘッダを登録する",
+    "id": "Hinsert",
+    "before": "notEmptyPassForSqlsDataOfBatchProc('Hselect', '受注番号')",
+    "after": "",
+    "sql": {
+      "type": "insert",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注ヘッダ",
+        "where": "",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "yes",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注番号"
+        },
+        "顧客ＩＤ": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "顧客ＩＤ"
+        },
+        "受注日": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注日"
+        },
+        "受注金額合計": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注金額合計"
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注明細 検索処理",
+    "id": "Mselect",
+    "before": "" ,
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注明細",
+        "where": "受注番号 = ? AND 明細番号 = ?",
+        "order": "",
+        "limit": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "request",
+          "fromid": "batchKey",
+          "fromio": "",
+          "fromname": "受注番号"
+        },
+        "明細番号": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "batchKey",
+          "fromio": "",
+          "fromname": "明細番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "field": "受注番号"
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注明細を登録する",
+    "id": "Minsert",
+    "before": "notEmptyPassForSqlsDataOfBatchProc('Mselect', '受注番号')",
+    "after": "",
+    "sql": {
+      "type": "insert",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注明細",
+        "where": "",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注番号"
+        },
+        "明細番号": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "明細番号"
+        },
+        "商品名称": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "商品名称"
+        },
+        "納期日": {
+          "value": [""],
+          "fieldtype": "char",
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "納期日"
+        },
+        "受注数量": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注数量"
+        },
+        "受注単価": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注単価"
+        },
+        "受注金額": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "受注金額"
+        },
+        "備考": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "TranSelect",
+          "fromio": "output",
+          "fromname": "備考"
+        }
+      }
+    }
+  }
+]
+}

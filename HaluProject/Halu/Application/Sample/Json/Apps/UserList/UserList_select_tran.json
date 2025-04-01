@@ -1,0 +1,122 @@
+{
+  "request": {
+    "comment": "一覧照会（単一テーブル） 照会処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/UserList",
+    "mode": "select",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "検索ユーザコード": {
+            "value": [""]
+          },
+          "検索ユーザ名": {
+            "value": [""]
+          },
+          "検索パスワード": {
+            "value": [""]
+          },
+          "検索メニュー名": {
+            "value": [""]
+          },
+          "検索テーマコード": {
+            "value": [""]
+          },
+          "検索備考": {
+            "value": [""]
+          },
+          "ページライン数": {
+            "value": [""]
+          },
+          "カレントページ": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "comment": "一覧照会（単一テーブル） 照会処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/UserList",
+    "mode": "select",
+    "prog": "yes",
+    "message": {
+      "status": "OK",
+      "msg": "照会処理は正常に終了しました。"
+    },
+    "records": [
+    {
+      "comment": "ユーザ情報",
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザコード": {
+          "value": [""]
+        },
+        "ユーザ名": {
+          "value": [""]
+        },
+        "パスワード": {
+          "value": [""]
+        },
+        "メニュー名": {
+          "value": [""]
+        },
+        "テーマコード": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "comment": "テーブルページング情報",
+      "id": "header",
+      "before": "",
+      "after": "getMaxPageCountOfUserList('header')",
+      "multiline": "no",
+      "record": {
+        "ページライン数": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ページライン数"
+        },
+        "カレントページ": {
+          "value": ["1"],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "カレントページ"
+        },
+        "最大ページ": {
+          "value": [""]
+        },
+        "トータル件数": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "total_count",
+          "fromio": "output",
+          "fromname": "トータル件数"
+        }
+      }
+    }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "comment": "並列分散　分割処理　一覧表 validation",
+  "html": "Sample/Json/Apps/BatchDivisionList",
+  "records": [{
+    "id": "header",
+    "multiline": "no",
+    "record": {
+      "ページライン数": {
+        "validation": ["required"]
+      },
+      "カレントページ": {
+        "validation": ["required"]
+      },
+      "バッチ管理ＩＤ": {
+        "validation": ["required"]
+      },
+      "再処理バッチ管理ＩＤ": {
+        "validation": ["nonrequired"]
+      },
+      "再処理バッチ分割管理ＩＤ": {
+        "validation": ["nonrequired"]
+      }
+    }
+  }]
+}

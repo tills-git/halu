@@ -1,0 +1,82 @@
+{
+  "request": {
+    "comment": "ユーザ情報登録 リクエストデータ",
+    "html": "Sample/Json/Apps/StartMenu",
+    "mode": "userinfo",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "画面名": {
+          "value": [""]
+        },
+        "host": {
+          "value": [""]
+        },
+        "hostname": {
+          "value": [""]
+        },
+        "port": {
+          "value": [""]
+        },
+        "request": {
+          "value": [""]
+        },
+        "code": {
+          "value": [""]
+        },
+        "browser": {
+          "value": [""]
+        },
+        "version": {
+          "value": [""]
+        },
+        "lang": {
+          "value": [""]
+        },
+        "platform": {
+          "value": [""]
+        },
+        "useragent": {
+          "value": [""]
+        },
+        "referer": {
+          "value": [""]
+        },
+        "domain": {
+          "value": [""]
+        },
+        "screen_w": {
+          "value": [""]
+        },
+        "screen_h": {
+          "value": [""]
+        },
+        "screen_col": {
+          "value": [""]
+        }
+      }
+    }]
+  },
+  "response": {
+    "comment": "ユーザ情報登録 レスポンスデータ",
+    "html": "Sample/Json/Apps/StartMenu",
+    "mode": "userinfo",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "ユーザ情報登録処理は正常に終了しました。"
+    }
+  }
+}

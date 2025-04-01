@@ -1,0 +1,37 @@
+{
+  "request": {
+    "comment": "受注ヘッダ・受注明細 更新 バッチ起動のrequestデータ",
+    "html": "Sample/Json/Apps/BatchOrderUploadStart",
+    "mode": "start",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [{
+      "id": "batchParam",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザ名称": {
+          "value": [""]
+        }
+      }
+    }]
+  },
+  "response": {
+    "comment": "受注ヘッダ・受注明細 更新 バッチ起動のresponseデータ",
+    "html": "Sample/Json/Apps/BatchOrderUploadStart",
+    "mode": "start",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "受注ヘッダ・受注明細 更新 バッチ起動を実行しました。"
+    }
+  }
+}

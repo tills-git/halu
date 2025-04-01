@@ -1,0 +1,22 @@
+{
+  "comment": "Sample メニュー dataset",
+  "html": "Sample/Json/Apps/AdminMenu",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [{
+    "comment": "ログイン情報（ユーザ名・ログイン時刻）",
+    "id": "header",
+    "multiline": "no",
+    "defaultline": "0",
+    "record": {
+      "ダミー": {
+        "validation": ["nonrequired",
+          "free"],
+          "min": "1",
+          "max": "1"
+        }
+    }
+  }]
+}

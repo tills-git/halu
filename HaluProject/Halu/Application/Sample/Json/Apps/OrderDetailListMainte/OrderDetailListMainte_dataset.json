@@ -1,0 +1,73 @@
+{
+  "comment": "明細一覧登録（子テーブル） dataset",
+  "html": "Sample/Json/Apps/OrderDetailListMainte",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [
+    {
+      "id": "login",
+      "multiline": "no",
+      "defaultline": "0",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザ名称": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "header",
+      "multiline": "no",
+      "defaultline": "0",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "受注日": {
+          "value": [""]
+        },
+        "合計金額": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "detail",
+      "multiline": "yes",
+      "defaultline": "5",
+      "record": {
+        "削除": {
+          "value": [""]
+        },
+        "明細番号": {
+          "value": [""]
+        },
+        "商品名称": {
+          "value": [""]
+        },
+        "受注数量": {
+          "value": [""]
+        },
+        "受注単価": {
+          "value": [""]
+        },
+        "受注金額": {
+          "value": [""]
+        },
+        "納期日": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        }
+      }
+    }
+  ]
+}

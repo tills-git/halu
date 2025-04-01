@@ -1,0 +1,218 @@
+{
+  "request": {
+    "comment": "受注一覧表（ＨＭ）帳票処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/OrderListPrint",
+    "mode": "printHM",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+      "id": "printKey",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "printParam",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "検索顧客ＩＤ": {
+          "value": [""]
+        },
+        "検索顧客氏名": {
+          "value": [""]
+        },
+        "検索受注日カラ": {
+          "value": [""]
+        },
+        "検索受注日マデ": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "受注一覧表（ＨＭ）帳票処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/OrderListPrint",
+    "mode": "printHM",
+    "prog": "no",
+    "excelinfo": {
+      "prog": "yes",
+      "template": "OrderListPrint_printHM.xlsx",
+      "savefile": "OrderListPrint_printHM.xlsx",
+      "pdfname": "受注一覧表（ＨＭ）"
+    },
+    "message": {
+      "status": "OK",
+      "msg": "プリント処理は正常に終了しました。"
+    },
+    "records": [
+    {
+      "comment": "ページヘッダ",
+      "id": "page_header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "excelinfo": {
+        "before": "page_headerHM()",
+        "after": "",
+        "pagecontrol": "page_header",
+        "outputcontrol": "all_page",
+        "templatepage": "1"
+      },
+      "record": {
+        "ページ番号": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "I",
+              "row": "1"
+            }
+          }
+        },
+        "受注番号": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "str",
+            "cell": {
+              "column": "C",
+              "row": "3"
+            }
+          }
+        },
+        "顧客氏名": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "str",
+            "cell": {
+              "column": "C",
+              "row": "4"
+            }
+          }
+        },
+        "受注日": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "date",
+            "cell": {
+              "column": "C",
+              "row": "5"
+            }
+          }
+        },
+        "合計金額": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "C",
+              "row": "6"
+            }
+          }
+        }
+      }
+    },
+    {
+      "comment": "受注明細",
+      "id": "detail",
+      "before": "",
+      "after": "",
+      "multiline": "yes",
+      "excelinfo": {
+        "before": "",
+        "after": "",
+        "pagecontrol": "detail",
+        "outputcontrol": "all_page",
+        "pagelines": "10",
+        "rowposition": "9",
+        "movedown": "1"
+      },
+      "record": {
+        "明細番号": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "A",
+              "row": ""
+            }
+          }
+        },
+        "商品名称": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "str",
+            "cell": {
+              "column": "B",
+              "row": ""
+            }
+          }
+        },
+        "受注数量": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "D",
+              "row": ""
+            }
+          }
+        },
+        "受注単価": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "E",
+              "row": ""
+            }
+          }
+        },
+        "受注金額": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "int",
+            "cell": {
+              "column": "F",
+              "row": ""
+            }
+          }
+        },
+        "納期日": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "date",
+            "cell": {
+              "column": "G",
+              "row": ""
+            }
+          }
+        },
+        "備考": {
+          "value": [""],
+          "excelinfo": {
+            "type":   "str",
+            "cell": {
+              "column": "H",
+              "row": ""
+            }
+          }
+        }
+      }
+    }
+    ]
+  }
+}

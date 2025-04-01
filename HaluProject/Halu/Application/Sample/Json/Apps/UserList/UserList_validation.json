@@ -1,0 +1,24 @@
+{
+  "comment": "一覧照会（単一テーブル） validation",
+  "html": "Sample/Json/Apps/UserList",
+  "records": [
+  {
+    "id": "header",
+    "multiline": "no",
+    "record": {
+      "ページライン数": {
+        "validation": ["required",
+        "integerP"],
+        "min": "1",
+        "max": "11"
+      },
+      "カレントページ": {
+        "validation": ["required",
+        "integerP"],
+        "min": "1",
+        "max": "11"
+      }
+    }
+  }
+  ]
+}

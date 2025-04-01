@@ -1,0 +1,103 @@
+{
+  "comment": "受注一覧表（ＨＭ） 前処理",
+  "html": "Sample/Json/Apps/OrderList",
+  "dbname": "sample",
+  "mode": "printHM",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "受注一覧表（ＨＭ） 前処理は正常に終了しました。"
+  },
+  "sqls": 
+  [
+  {
+      "comment": "帳票キーデータの検索処理",
+      "id": "printKey",
+      "before": "setSql_OrderList('header', 'printKey', 'genesql')",
+      "after":  "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": 
+          [
+            "受注ヘッダ AS hdr"
+            ,"LEFT OUTER JOIN 受注明細 AS dtl ON (hdr.受注番号 = dtl.受注番号)"
+            ,"LEFT OUTER JOIN 顧客 AS cst ON (hdr.顧客ＩＤ = cst.顧客ＩＤ)"
+          ],
+          "where": "true && GROUP BY hdr.受注番号",
+          "order": "hdr.受注番号, hdr.受注日",
+          "limit": ""
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+        }
+      },
+      "output": {
+        "multiline": "yes",
+        "record": {
+          "受注番号": {
+            "value": [""],
+            "field": "受注番号",
+            "table": "hdr"
+          }
+        }
+      }
+  },
+  {
+    "comment": "プリント処理用パラメータを設定する",
+    "id": "printParam",
+    "html": "Sample/Json/Apps/OrderListPrint",
+    "mode": "printHM",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "nosql",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "",
+        "where": "",
+        "order": "",
+        "limit": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "検索顧客ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索顧客ＩＤ"
+        },
+        "検索顧客氏名": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索顧客氏名"
+        },
+        "検索受注日カラ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索受注日カラ"
+        },
+        "検索受注日マデ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "検索受注日マデ"
+        }
+      }
+    }
+  }
+  ]
+}

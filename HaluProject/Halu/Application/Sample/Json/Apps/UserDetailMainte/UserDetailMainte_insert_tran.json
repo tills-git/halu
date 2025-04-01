@@ -1,0 +1,105 @@
+{
+  "request": {
+    "comment": "単票登録（単一テーブル） 登録処理 リクエストデータ",
+    "html" : "Sample/Json/Apps/UserDetailMainte",
+    "mode": "insert",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+      {
+        "id": "login",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          },
+          "ユーザ名称": {
+            "value": [""]
+          }
+        }
+      },
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          },
+          "ユーザコード": {
+            "value": [""]
+          },
+          "ユーザ名" : {
+            "value" : [""]
+          },
+          "パスワード" : {
+            "value" : [""]
+          },
+          "メニュー名" : {
+            "value" : [""]
+          },
+          "テーマコード" : {
+            "value" : [""]
+          },
+          "備考" : {
+            "value" : [""]
+          },
+          "メールアドレス": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "comment": "単票登録（単一テーブル） 登録処理 レスポンスデータ",
+    "html" : "Sample/Json/Apps/UserDetailMainte",
+    "mode": "delete",
+    "prog": "no",
+    "message": {
+      "status": "OK",
+      "msg": "登録処理は正常に終了しました。"
+    },
+    "records": [
+      {
+        "id": "header",
+        "before": "",
+        "after": "",
+        "multiline": "no",
+        "record": {
+          "ユーザＩＤ": {
+            "value": [""]
+          },
+          "ユーザコード": {
+            "value": [""]
+          },
+          "ユーザ名" : {
+            "value" : [""]
+          },
+          "パスワード" : {
+            "value" : [""]
+          },
+          "メニュー名" : {
+            "value" : [""]
+          },
+          "テーマコード" : {
+            "value" : [""]
+          },
+          "備考" : {
+            "value" : [""]
+          },
+          "メールアドレス": {
+            "value": [""]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+使用方法
+
+デモにあるように、このプラグインの使い方はさまざまですが、基本的なコンセプトは以下のとおりです。
+
+    ・以下のようなHTML要素でプラグインを初期化します。<div />などのHTML要素にプラグインを初期化して、ドラッグ＆ドロップエリアを提供する。
+    ・メインのエリア要素内の<input type="file"/>もすべてバインドされます。
+    ・オプションとして、<input />に直接バインドすることもできます 
+
+
+マークアップ例
+
+    これは、シンプルなHTMLマークアップです。ファイルの入力は任意ですが、ユーザーがファイルを選択するための代替手段を提供しています
+    （非表示にする方法やスタイルについては、オンラインデモをご覧ください）。
+
+    <div id="drop-area">
+      <h3>Drag and Drop Files Here<h3/>
+      <input type="file" title="Click to add Files">
+    </div>
+
+
+Initialization
+
+   <script src="/path/to/jquery.dm-uploader.min.js"></script>
+
+
+    $("#drop-area").dmUploader({
+      url: '/path/to/backend/upload.asp',
+      //... More settings here...
+  
+      onInit: function(){
+        console.log('Callback: Plugin initialized');
+      }
+  
+      // ... More callbacks
+    });
+
+
+  以下に、利用可能なすべてのオプションとコールバックの詳細なリストがあります。
+
+  さらに、初期化後は、利用可能なメソッドを使ってプラグインと対話することができます。
+
+
+オプション(Options)
+
+    ・queue: (boolean) デフォルト true ファイルは1つずつアップロードされます。
+
+    ・auto: (boolean) 既定値 true ファイルが追加された直後にアップロードを開始します。
+            キューシステムを使用している場合、このオプションは、最初のファイルが追加された後、自動的にキューが開始されることを意味します。
+            このオプションをfalseに設定すると、APIメソッドを使用して手動でアップロードを開始する必要があります。
+
+    ・dnd: (boolean) Default true ドラッグ＆ドロップを有効にします。
+
+    ・hookDocument：(boolean) Default true $(document)にファイルをドロップすることを無効にします。
+           これは、ファイルをドロップする際にブラウザがリダイレクトするのを防ぐために必要です。
+           これを無効にしたい唯一の理由は、このプラグインの複数のインスタンスを使用する場合です。その場合は一度だけ使用すればよい。
+
+    ・multiple：(boolean) Default true ユーザーが複数のファイルを同時に選択またはドロップできるようにします。
+
+    ・url：(string) デフォルト document.URL ファイルアップロードを処理するためのサーバーURL（バックエンドロジック）。
+
+    ・method：(string) アップロード要求で使われるデフォルトのPOST HTTPメソッド。
+
+    ・extraData：(object/function) アップロードリクエストで追加するパラメータのコレクション。
+
+           // Example
+           extraData: {
+              "galleryid": 666
+           }
+
+          動的な値が必要な場合は、これを関数として設定できます。また、この関数がfalseを返した場合、何も追加されません。
+
+           // Example
+           extraData: function() {
+              return {
+                "galleryid": $('#gallery').val()
+              };
+           }
+
+    ・headers：(object) アップロードリクエストで送信するヘッダーのコレクション
+
+           // Example
+           headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+
+    ・dataType：(string) デフォルト null アップロード要求の応答タイプ。
+           デフォルトはnullで、これはjQueryがサーバーから返された内容を「推測」しようとすることを意味します。
+           その他の値として、xml、json、script、html、text があります。
+           参照: http://api.jquery.com/jquery.ajax/
+
+    ・fieldName：(string) デフォルト 'file' ファイルを「添付」するアップロードリクエストのフィールド名。
+
+           // For example in PHP if using the default value you can access the file by using:
+           var_dump($_FILES['file']);
+           // 'file' correspond to the value of this option.
+
+    ・maxFileSize：(整数) デフォルト 0 ファイル検証。最大ファイルサイズをバイト単位で指定します。0は制限なしを意味します。
+
+           maxFileSize: 3000000 // 3 Megs
+
+    ・allowedTypes：(string) デフォルト "*" ファイルの検証。ファイルのmime-typeにマッチする正規表現。
+
+           allowedTypes: "image/*"
+
+    ・extFilter：(array) Default null ファイルの検証。許可された拡張子の配列。
+
+           extFilter: ["jpg", "jpeg", "png", "gif"]
+
+
+
+コールバック(Callbacks)
+  一般用
+
+    ・onInit：() ウィジェットが使用可能になります。
+
+    ・onFallbackMode：() ブラウザがプラグインでサポートされていない場合にのみトリガされます。
+
+    ・onDragEnter：() ユーザーがファイルをドロップエリアにドラッグしています。
+
+    ・onDragLeave：() ユーザーがドロップエリアから離脱しました。
+
+           これは、ファイルがドロップされたときにもトリガーされます。
+
+    ・onDocumentDragEnter：() ユーザーがファイルを$(document)上の任意の場所にドラッグしています。
+
+    ・onDocumentDragLeave：() ユーザーが$(document)領域から離脱しました。
+
+           これは、ファイルがドロップされたときにもトリガーされます。
+
+    ・onComplete：() 保留中のファイルがすべて完了します。
+
+           queue: trueを使用している場合のみ適用されます。オプションを参照してください。
+
+           キューが終端に達したときにトリガーします（いくつかのファイルがキャンセルされたり、エラーが発生した場合も含む）。
+
+
+  File callbacks
+    これらはすべて、IDを使用します。
+
+    id（文字列）。一意のID。以降のコールバックで同じファイルを識別するのに便利です。
+
+
+    ・onNewFile：(id, file) ユーザーによって新しいファイルが選択またはドロップされました。
+
+           ・ファイル（オブジェクト）です。ファイルオブジェクトは、名前、サイズなどのファイルの詳細にアクセスするために使用します。
+           　参考資料はこちら(https://developer.mozilla.org/en-US/docs/Web/API/File)
+           ・複数追加された場合は、複数回呼び出されます。
+           ・ファイルのバリデーションはすでに実行されています。
+           ・戻り値が提供され、=== false の場合、ファイルはウィジェットによって無視されます。
+           ・この戻り値を使って、独自のバリデータを実装してください。
+
+
+    ・onBeforeUpload：(id) アップロードリクエストが実行されようとしている。
+
+    ・onUploadProgress：(id, percent) ファイルの新しいアップロード率を取得します。
+
+           percent (integer) : 0-100
+
+    ・onUploadSuccess：(id, data) ファイルは正常にアップロードされ、サーバからの応答を得ました。
+
+           data (object) : アップロードリクエストのレスポンスです。このパラメータのオブジェクトタイプは以下に依存します： dataType
+
+    ・onUploadError：(id, xhr, status, errorThrown) アップロードリクエスト中にエラーが発生しました。
+
+           xhr（オブジェクト） : XMLHttpRequest
+
+           status (integer) : エラーの種類、例。"timeout"、"error"、"abort"、"parsererror"
+
+           errorThrown (string) : HTTPエラーが発生したときのみ。Not Found」「Bad Request」など。
+
+           Reference: http://api.jquery.com/jquery.ajax/
+
+    ・onUploadComplete：(id) ファイルのアップロードが完了しました。
+
+           これはonUploadSuccessまたはonUploadErrorの直後にトリガーされます。どちらの場合も
+
+    ・onUploadCanceled：(id) アップロードがユーザーによってキャンセルされました。
+
+           これは、APIメソッドの1つを使用してアップロードをキャンセルしたときにトリガーされます。
+
+：
+  Validation callbacks
+
+    ・onFileTypeError：(file) ファイルタイプの検証に失敗しました。
+
+           allowedTypesという設定を使用した場合のトリガー。
+
+    ・onFileSizeError: (file) ファイルサイズの検証に失敗しました
+
+           maxFileSizeを使用した場合に発生します。
+
+    ・onFileExtError: (file) ファイル拡張子の検証に失敗しました。
+
+           extFilterを使用した場合のトリガーです。
+
+
+
+Methods
+
+  ウィジェットの操作にはいくつかの方法がありますが、その動作の一部は設定に依存します。
+
+    ・start：(id) アップロードを開始します。(idはオプション)
+
+           状況に応じて、この方法をとることもあります。
+
+           idが提供され、実行中のキューがない場合、個々のファイルのアップロードを開始します。
+           失敗したファイルや以前にキャンセルされたファイルを再試行します。
+           auto が false に設定されていて、id が提供されていない場合、キューを開始します。
+           queue が false に設定されている場合、保留中のすべてのファイルを開始します。
+
+           Example:
+
+               $("#drop-area").dmUploader("start", id);
+
+    ・cancel：(id) アップロードをキャンセルします。(idはオプション)
+
+           状況に応じて、この方法をとることもあります。
+
+           idが指定されている場合は、現在アップロード中のファイルをキャンセルします。
+           idが提供されていない場合、現在アップロード中のすべてのファイルをキャンセルします。
+           このオプションを使用している場合、保留中のファイルをキャンセルし、そのファイルはキューによってスキップされます。
+           そのオプションを使用している場合、現在のキューを停止し、現在のすべてのアップロードを停止します。
+
+           Example:
+
+               $("#drop-area").dmUploader("cancel", id);
+
+    ・reset：() プラグインをリセットする
+
+           すべてのアップロードを停止する
+           すべてのファイルの削除
+           キューのリセット
+
+           Example:
+
+               $("#drop-area").dmUploader("reset");
+
+
+    ・destroy：() すべてのプラグインデータを破棄する
+
+           すべてのアップロードを停止する
+           すべてのファイルを削除
+           すべてのイベントを解放する（オプションで hookDocument を使用している場合はそのイベントも含む
+
+           Example:
+
+               $("#drop-area").dmUploader("destroy");

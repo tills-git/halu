@@ -1,0 +1,125 @@
+{
+  "comment": "受注一覧表（ＨＭ）帳票処理",
+  "html": "Sample/Json/Apps/OrderListPrint",
+  "dbname": "sample",
+  "mode": "printHM",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "プリント処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "受注ヘッダの検索処理",
+    "id": "page_header",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": 
+        [
+          "受注ヘッダ AS A"
+         ,"LEFT OUTER JOIN 顧客 AS B ON (A.顧客ＩＤ = B.顧客ＩＤ)"
+        ],
+        "where": "A.受注番号 = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "printKey",
+          "fromio": "",
+          "fromname": "受注番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "field": "受注番号",
+          "table": "A"
+        },
+        "顧客氏名": {
+          "value": [""],
+          "field": "顧客氏名",
+          "table": "B"
+        },
+        "受注日": {
+          "value": [""],
+          "funct": "TO_CHAR(A.受注日, 'YYYY/MM/DD')"
+        },
+        "受注金額合計": {
+          "value": [""],
+          "funct": "TO_CHAR(A.受注金額合計, 'FM999,999,999')"
+        }
+      }
+    }
+  },
+  {
+    "comment": "受注明細の検索処理",
+    "id": "detail",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注明細",
+        "where": "受注番号 = ?",
+        "order": "明細番号"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "受注番号": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "printKey",
+          "fromio": "",
+          "fromname": "受注番号"
+        }
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "明細番号": {
+          "value": [""]
+        },
+        "商品名称": {
+          "value": [""]
+        },
+        "受注数量": {
+          "value": [""],
+          "funct": "TO_CHAR(受注数量, 'FM999,999,999')"
+        },
+        "受注単価": {
+          "value": [""],
+          "funct": "TO_CHAR(受注単価, 'FM999,999,999')"
+        },
+        "受注金額": {
+          "value": [""],
+          "funct": "TO_CHAR(受注金額, 'FM999,999,999')"
+        },
+        "納期日": {
+          "value": [""],
+          "funct": "TO_CHAR(納期日, 'YYYY/MM/DD')"
+        },
+        "備考": {
+          "value": [""]
+        }
+      }
+    }
+  }]
+}

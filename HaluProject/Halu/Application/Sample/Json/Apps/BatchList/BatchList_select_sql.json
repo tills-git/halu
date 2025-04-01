@@ -1,0 +1,105 @@
+{
+  "comment": "バッチ処理　一覧表　初期処理",
+  "html": "Sample/Json/Apps/BatchList",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "総件数を取得する",
+    "id": "total_count",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ管理",
+        "where": "",
+        "order": ""
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "トータル件数": {
+          "value": [""],
+          "funct": "COUNT(*)"
+        }
+      }
+    }
+  },
+  {
+    "comment": "指定件数分のデータを取得する。getOffsetLine：オフセット行数を計算する。",
+    "id": "detail",
+    "before": "getOffsetLineOfBatchList('header', 'detail')",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ管理",
+        "where": "",
+        "order": "バッチ管理ＩＤ DESC",
+        "limit": "? OFFSET ?"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ページライン数": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ページライン数"
+        },
+        "オフセットライン数": {
+          "value": [""]
+        }
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""]
+        },
+        "処理名": {
+          "value": [""]
+        },
+        "ロードパス名": {
+          "value": [""]
+        },
+        "処理モード": {
+          "value": [""]
+        },
+        "分割数": {
+          "value": [""]
+        },
+        "分割終了数": {
+          "value": [""]
+        },
+        "ＮＥＸＴ処理名": {
+          "value": [""]
+        },
+        "ＤＢ名": {
+          "value": [""]
+        },
+        "開始日時": {
+          "value": [""],
+          "funct": "TO_CHAR(開始日時, 'YYYY/MM/DD HH24:MI:SS')"
+        },
+        "終了日時": {
+          "value": [""],
+          "funct": "TO_CHAR(終了日時,   'YYYY/MM/DD HH24:MI:SS')"
+        }
+      }
+    }
+  }]
+}

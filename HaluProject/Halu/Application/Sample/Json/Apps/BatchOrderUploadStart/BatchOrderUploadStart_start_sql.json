@@ -1,0 +1,136 @@
+{
+  "comment": "受注ヘッダ・受注明細 更新 バッチ起動",
+  "html": "Sample/Json/Apps/BatchOrderUploadStart",
+  "dbname": "sample",
+  "mode": "start",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "受注ヘッダ・受注明細 更新 バッチ起動は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "バッチ パラメータ情報",
+    "id": "batchParam",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "nosql"
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "batchParam",
+          "fromio": "",
+          "fromname": "ユーザＩＤ"
+        },
+        "ユーザ名称": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "batchParam",
+          "fromio": "",
+          "fromname": "ユーザ名称"
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチ キー情報",
+    "id": "batchKey",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "受注ＣＳＶ",
+        "where": "",
+        "order": "受注番号, 明細番号"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        },
+        "明細番号": {
+          "value": [""]
+        }
+      }
+    }
+  },
+  {
+    "comment": "バッチ　起動情報",
+    "id": "batchControll",
+    "dbname": "sample",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "nosql"
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""]
+        },
+        "会社名": {
+          "value": ["TILLS"]
+        },
+        "部門名": {
+          "value": ["システム開発"]
+        },
+        "処理名": {
+          "value": ["受注ヘッダ・受注明細 更新 バッチ処理"]
+        },
+        "ロードパス名": {
+          "value": ["Sample/Json/Apps/BatchOrderUploadProc"]
+        },
+        "処理モード": {
+          "value": ["BatchOrderUploadProc_proc"]
+        },
+        "分割数": {
+          "value": ["3"]
+        },
+        "分割終了数": {
+          "value": ["0"]
+        },
+        "ＮＥＸＴ処理名": {
+          "value": [""]
+        },
+        "ＮＥＸＴロードパス名": {
+          "value": [""]
+        },
+        "ユーザ名称": {
+          "value": [""],
+          "fromtype": "sqls",
+          "fromid": "batchParam",
+          "fromio": "input",
+          "fromname": "ユーザ名称"
+        },
+        "ＤＢ名": {
+          "value": ["sample"]
+        },
+        "コミット件数": {
+          "value": ["0"]
+        },
+        "開始日時": {
+          "value": [""]
+        },
+        "終了日時": {
+          "value": [""]
+        }
+      }
+    }
+  }]
+}

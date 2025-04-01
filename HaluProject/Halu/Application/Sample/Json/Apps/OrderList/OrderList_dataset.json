@@ -1,0 +1,76 @@
+{
+  "comment": "一覧照会（親子テーブル） dataset",
+  "html": "Sample/Json/Apps/OrderList",
+  "message": {
+    "status": "OK",
+    "msg": "データを入力して、実行ボタンを押下して下さい。"
+  },
+  "records": [
+    {
+      "id": "login",
+      "multiline": "no",
+      "defaultline": "0",
+      "record": {
+        "ユーザＩＤ": {
+          "value": [""]
+        },
+        "ユーザ名称": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "header",
+      "multiline": "no",
+      "defaultline": "1",
+      "record": {
+        "ページライン数": {
+          "value": [""]
+        },
+        "カレントページ": {
+          "value": [""]
+        },
+        "最大ページ": {
+          "value": [""]
+        },
+        "トータル件数": {
+          "value": [""]
+        },
+        "検索顧客ＩＤ": {
+          "value": [""]
+        },
+        "検索顧客氏名": {
+          "value": [""]
+        },
+        "検索受注日カラ": {
+          "value": [""]
+        },
+        "検索受注日マデ": {
+          "value": [""]
+        }
+      }
+    },
+    {
+      "id": "detail",
+      "multiline": "yes",
+      "defaultline": "20",
+      "record": {
+        "受注番号": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "受注日": {
+          "value": [""]
+        },
+        "受注金額": {
+          "value": [""]
+        },
+        "明細数": {
+          "value": [""]
+        }
+      }
+    }
+  ]
+}

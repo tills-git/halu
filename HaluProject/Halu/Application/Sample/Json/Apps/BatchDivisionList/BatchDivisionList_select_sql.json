@@ -1,0 +1,115 @@
+{
+  "comment": "バッチ分割処理 一覧表 初期処理",
+  "html": "Sample/Json/Apps/BatchDivisionList",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "総件数を取得する",
+    "id": "total_count",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ分割管理",
+        "where": "バッチ管理ＩＤ = ?",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理ＩＤ"
+        }
+      }
+    },
+    "output": {
+      "multiline": "no",
+      "record": {
+        "トータル件数": {
+          "value": [""],
+          "funct": "COUNT(*)"
+        }
+      }
+    }
+  },
+  {
+    "comment": "指定件数分のデータを取得する。getOffsetLine：オフセット行数を計算する。",
+    "id": "detail",
+    "before": "getOffsetLineOfBatchDivisionList('header', 'detail')",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "バッチ分割管理 AS A LEFT OUTER JOIN バッチ管理 AS B ON (A.バッチ管理ＩＤ = B.バッチ管理ＩＤ)",
+        "where": "A.バッチ管理ＩＤ = ?",
+        "order": "A.バッチ分割管理ＩＤ",
+        "limit": "? OFFSET ?"
+      }
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        "バッチ管理ＩＤ": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "バッチ管理ＩＤ"
+        },
+        "ページライン数": {
+          "value": [""],
+          "fromtype": "request",
+          "fromid": "header",
+          "fromio": "",
+          "fromname": "ページライン数"
+        },
+        "オフセットライン数": {
+          "value": [""]
+        }
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "明細バッチ管理ＩＤ": {
+          "value": [""],
+          "table": "A",
+          "field": "バッチ管理ＩＤ"
+        },
+        "明細バッチ分割管理ＩＤ": {
+          "value": [""],
+          "table": "A",
+          "field": "バッチ分割管理ＩＤ"
+        },
+        "処理名": {
+          "value": [""],
+          "table": "B",
+          "field": "処理名"
+        },
+        "開始日時": {
+          "value": [""],
+          "funct": "TO_CHAR(A.開始日時, 'YYYY/MM/DD HH24:MI:SS')"
+        },
+        "終了日時": {
+          "value": [""],
+          "funct": "TO_CHAR(A.終了日時,   'YYYY/MM/DD HH24:MI:SS')"
+        }
+      }
+    }
+  }]
+}

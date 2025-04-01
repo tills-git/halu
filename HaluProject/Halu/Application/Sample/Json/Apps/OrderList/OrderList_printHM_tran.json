@@ -1,0 +1,51 @@
+{
+  "request": {
+    "comment": "受注一覧表（ＨＭ） リクエストデータ",
+    "html" : "Sample/Json/Apps/OrderList",
+    "mode": "printHM",
+    "prog": "no",
+    "model": "yes",
+    "message": {
+      "status": "OK",
+      "msg": ""
+    },
+    "records": [
+    {
+      "id": "header",
+      "before": "",
+      "after": "",
+      "multiline": "no",
+      "record": {
+        "検索顧客ＩＤ": {
+          "value": [""]
+        },
+        "検索顧客氏名": {
+          "value": [""]
+        },
+        "検索受注日カラ": {
+          "value": [""]
+        },
+        "検索受注日マデ": {
+          "value": [""]
+        }
+      }
+    }
+    ]
+  },
+  "response": {
+    "comment": "受注一覧表（ＨＭ） レスポンスデータ",
+    "html" : "Sample/Json/Apps/OrderList",
+    "mode": "printHM",
+    "prog": "yes",
+    "message": {
+      "status": "OK",
+      "msg": "プリント処理は正常に終了しました。"
+    },
+    "excelinfo": {
+      "prog": "no",
+      "template": "OrderListPrint_printHM.xlsx",
+      "savefile": "OrderListPrint_printHM.xlsx",
+      "pdfname": "受注一覧表（ＨＭ）"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "comment": "一覧照会（単一テーブル） 初期処理",
+  "html": "Sample/Json/Apps/UserList",
+  "dbname": "sample",
+  "mode": "init",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "初期処理は正常に終了しました。"
+  },
+  "sqls": [
+    {
+      "comment": "テーマコード ドロップリスト",
+      "id": "選択検索テーマコード",
+      "before": "",
+      "after": "",
+      "sql": {
+        "type": "select",
+        "freesql": "",
+        "genesql": {
+          "dist": "",
+          "from": "テーマ",
+          "where": "",
+          "order": "テーマコード"
+        }
+      },
+      "input": {
+        "multiline": "no",
+        "record": {
+        }
+      },
+      "output": {
+        "multiline": "no",
+        "record": {
+          "list_テーマコード": {
+            "value": [""],
+            "field": "テーマコード"
+          },
+          "list_テーマ名称": {
+            "value": [""],
+            "field": "テーマ名称"
+          }
+        }
+      }
+    }
+  ]
+}

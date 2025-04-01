@@ -1,0 +1,120 @@
+{
+  "comment": "テーマ メンテナンス 実行処理",
+  "html": "Sample/Json/Apps/ThemeListMainte",
+  "dbname": "sample",
+  "mode": "execute",
+  "prog": "no",
+  "message": {
+    "status": "OK",
+    "msg": "テーマ 実行処理は正常に終了しました。"
+  },
+  "sqls": [{
+    "comment": "テーマ 削除処理",
+    "id": "delete",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "delete",
+      "freesql": "DELETE FROM テーマ",
+      "genesql": ""
+    },
+    "input": {
+      "multiline": "no",
+      "record": {
+        
+      }
+    }
+  },
+  {
+    "comment": "テーマ 更新処理",
+    "id": "insert",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "insert",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "テーマ",
+        "where": "",
+        "order": ""
+      }
+    },
+    "input": {
+      "multiline": "yes",
+      "record": {
+        "テーマコード": {
+          "value": [""],
+          "field": "テーマコード",
+          "fromtype": "request",
+          "fromid": "detail",
+          "fromio": "",
+          "fromname": "テーマコード"
+        },
+        "テーマ名称": {
+          "value": [""],
+          "field": "テーマ名称",
+          "fromtype": "request",
+          "fromid": "detail",
+          "fromio": "",
+          "fromname": "テーマ名称"
+        },
+        "使用": {
+          "value": [""],
+          "field": "使用中フラグ",
+          "fromtype": "request",
+          "fromid": "detail",
+          "fromio": "",
+          "fromname": "使用"
+        },
+        "登録日時": {
+          "value": [""],
+          "field": "登録日時",
+          "funct": "CURRENT_TIMESTAMP"
+        },
+        "更新日時": {
+          "value": [""],
+          "field": "更新日時",
+          "funct": "CURRENT_TIMESTAMP"
+        }
+      }
+    }
+  },
+  {
+    "comment": "テーマ 照会処理",
+    "id": "detail",
+    "before": "",
+    "after": "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "テーマ",
+        "where": "",
+        "order": "テーマコード"
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "テーマコード": {
+          "value": [""],
+          "field": "テーマコード"
+        },
+        "テーマ名称": {
+          "value": [""],
+          "field": "テーマ名称"
+        },
+        "使用": {
+          "value": [""],
+          "field": "使用中フラグ"
+        },
+        "削除": {
+          "value": [""],
+          "funct": "0"
+        }
+      }
+    }
+  }]
+}

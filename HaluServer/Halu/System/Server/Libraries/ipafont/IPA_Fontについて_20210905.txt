@@ -1,0 +1,6 @@
+IPAフォントは以下の書体で構成されている（括弧内は英語環境での表記）。
+
+   ・IPA明朝 (IPAMincho) ……固定幅フォント。
+   ・IPA P明朝 (IPAPMincho) ……可変幅フォント。
+   ・IPAゴシック (IPAGothic) ……固定幅フォント。
+   ・IPA Pゴシック (IPAPGothic) ……可変幅フォント。

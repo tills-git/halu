@@ -1,0 +1,47 @@
+{
+  "comment": "一覧登録（単一テーブル） 照会処理",
+  "html": "Sample/Json/Apps/CustomerListMainte",
+  "dbname": "sample",
+  "mode": "select",
+  "prog": "yes",
+  "message": {
+    "status": "OK",
+    "msg": "照会処理は正常に終了しました。"
+  },
+  "sqls": [
+  {
+    "comment": "顧客マスタ 照会処理",
+    "id": "detail",
+    "before": "",
+    "after":  "",
+    "sql": {
+      "type": "select",
+      "freesql": "",
+      "genesql": {
+        "dist": "",
+        "from": "顧客",
+        "where": "削除フラグ='0'",
+        "order": "顧客ＩＤ"
+      }
+    },
+    "output": {
+      "multiline": "yes",
+      "record": {
+        "顧客ＩＤ": {
+          "value": [""]
+        },
+        "顧客氏名": {
+          "value": [""]
+        },
+        "備考": {
+          "value": [""]
+        },
+        "削除": {
+          "value": [""],
+          "field": "削除フラグ"
+        }
+      }
+    }
+  }
+  ]
+}

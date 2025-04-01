@@ -1,0 +1,10 @@
+{
+	"comment": "受注データ アップロード処理 validation",
+	"html": "Sample/Json/Apps/OrderUpload",
+	"records": [{
+			"id": "header",
+			"multiline": "no",
+			"record": {}
+		}
+	]
+}
