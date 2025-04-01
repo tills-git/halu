@@ -11,9 +11,9 @@ class HaluConf():
         # -------------------------------------------------------------
         if os.name == 'nt':
             self.__sysos      = 'Windows'
-            self.__serverpath = 'C:/git_tills/dev_halu/HaluServer'
-            self.__syspath    = 'C:/git_tills/dev_halu/HaluServer/Halu/System'
-            self.__apppath    = 'C:/git_tills/dev_halu/HaluProject/Halu/Application'
+            self.__serverpath = 'C:/git_tills/halu/HaluServer'
+            self.__syspath    = 'C:/git_tills/halu/HaluServer/Halu/System'
+            self.__apppath    = 'C:/git_tills/halu/HaluProject/Halu/Application'
             self.__soffice    = 'C:/LibreOffice/program/soffice'
         elif os.name == 'posix':
             self.__sysos      = 'Linux'
@@ -85,15 +85,15 @@ class HaluConf():
         database0['password'] = 'postgres'
         self.__def_database['sample'] = database0
 
-        # アシスタント DB
-        database1             = {}
-        database1['dbdriver'] = 'postgresql'
-        database1['hostname'] = '127.0.0.1'
-        database1['portno']   = '55432'
-        database1['database'] = 'haluassistant'
-        database1['username'] = 'postgres'
-        database1['password'] = 'postgres'
-        self.__def_database['haluassistant'] = database1
+        # template DB
+        # database1             = {}
+        # database1['dbdriver'] = 'postgresql'
+        # database1['hostname'] = '127.0.0.1'
+        # database1['portno']   = '55432'
+        # database1['database'] = 'haluassistant'
+        # database1['username'] = 'postgres'
+        # database1['password'] = 'postgres'
+        # self.__def_database['template'] = database1
 
         # -------------------------------------------------------------
         #   プロジェクト別 データベース定義 終了
