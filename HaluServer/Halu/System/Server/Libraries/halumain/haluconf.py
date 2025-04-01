@@ -79,7 +79,7 @@ class HaluConf():
         database0             = {}
         database0['dbdriver'] = 'postgresql'
         database0['hostname'] = '127.0.0.1'
-        database0['portno']   = '5432'
+        database0['portno']   = '55432'
         database0['database'] = 'sample'
         database0['username'] = 'postgres'
         database0['password'] = 'postgres'
