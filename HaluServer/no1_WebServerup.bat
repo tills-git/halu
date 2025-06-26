@@ -1,9 +1,7 @@
-@echo on
+ï»¿@echo on
 
-rem HaluƒtƒHƒ‹ƒ_‚ÉˆÚ“®‚·‚é
+rem Go to the Halu folder
 cd ./Halu/
 
-rem WebƒT[ƒo•ƒXƒ^[ƒŒƒbƒg‚ğ‹N“®‚·‚é
+rem Start the Web Server & starlette
 uvicorn halu:app
-
-

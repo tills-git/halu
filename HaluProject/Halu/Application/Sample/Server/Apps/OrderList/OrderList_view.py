@@ -53,11 +53,11 @@ class OrderList_view():
         status : str
             'OK' 固定
         """
-        self.mvclog.debug(self.mvclogname, 'OrderList_view getMaxPageCountOfUserList start')
+        self.mvclog.debug(self.mvclogname, 'OrderList_view getMaxPageCountOfOrderList start')
 
         tempObj = Pagination_view(self.responsedict, self.mvclog, self.mvclogname)
         status  = tempObj.getMaxPageCount(idName)
 
-        self.mvclog.debug(self.mvclogname, 'OrderList_view getMaxPageCountOfUserList end')
+        self.mvclog.debug(self.mvclogname, 'OrderList_view getMaxPageCountOfOrderList end')
         return status
 

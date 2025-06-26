@@ -1,9 +1,9 @@
 @echo on
 
-rem メインフォルダに移動する
+rem Go to the Main folder
 cd ./Halu/System/Server/Libraries/halumain/
 
-rem プリントサーバを起動する
+rem Start the PrintServer
 python printserver.py
 
 exit

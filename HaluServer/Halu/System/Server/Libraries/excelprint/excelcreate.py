@@ -1,10 +1,12 @@
 # coding: utf-8
 
+import os
 import subprocess
 import openpyxl
 from   openpyxl.drawing.image  import Image
 from   datetime                import datetime
 from   halumain.haluconf       import HaluConf
+from   time                    import sleep
 
 class ExcelCreate():
     """
@@ -74,6 +76,27 @@ class ExcelCreate():
         # エクセルをPDFに変換する
         self.excellog.debug(self.excellogname, 'ExcelCreate excelterminate エクセルをPDFに変換')
         subprocess.Popen(self.soffice, shell=True)
+
+        # ファイル存在チェック(PDF完成または最大10秒まで待機)
+        pdffile  = self.savefile.replace('.xlsx', '.pdf')
+        i = 0
+        while i < 20 :
+            exist_file = os.path.isfile(pdffile)
+            if exist_file == True:
+                #ファイルができたのでレスポンスを作成する
+                break
+            else :
+                # 0.5秒ずつ待機
+                sleep(0.5)
+                i = i + 1
+                continue
+
+        # 結果を反映する
+        self.excellog.debug(self.excellogname, f'ExcelCreate excelterminate PDF変換結果 : {exist_file}')
+        if exist_file == False:
+            # 最後までファイルが作成されなかった場合、結果NGを返す
+            responsedict["message"]["status"] = "ERROR"
+            responsedict["message"]["msg"] = "PDF作成に失敗しました。"
 
         # 新しいレスポンスを作成する
         # 作成したエクセルのファイル名とダウンロードする時のファイル名を設定する

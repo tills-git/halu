@@ -1,9 +1,9 @@
 @echo on
 
-rem メインフォルダに移動する
+rem Go to the Halu folder
 cd ./Halu/System/Server/Libraries/halumain/
 
-rem Appサーバを起動する
+rem Start the AppServer
 python appserver.py
 
 exit

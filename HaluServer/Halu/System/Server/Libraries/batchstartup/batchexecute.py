@@ -71,7 +71,7 @@ class BatchExecute():
             self.clog.debug(self.clogname, f'BatchExecute バッチ処理名      : {w_batchname}')
             self.clog.debug(self.clogname, f'BatchExecute バッチロードパス名 : {w_passname}')
             self.clog.debug(self.clogname, f'BatchExecute バッチパラメータ   : {arg_str}')
-            subprocess.Popen(w_command)
+            subprocess.Popen(w_command, shell=True)
 
             # sql.jsonのリターン値を設定する
             sqldict['message']['status'] = 'OK'
@@ -115,7 +115,7 @@ class BatchExecute():
             self.clog.debug(self.clogname, f'NEXT バッチロードパス名 : {w_passname}')
 
             w_command  = "python " +  w_passname
-            subprocess.Popen(w_command)
+            subprocess.Popen(w_command, shell=True)
 
             return "OK"
 
